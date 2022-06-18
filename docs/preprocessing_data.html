@@ -53,7 +53,8 @@ nb_path: "01_preprocessing_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">peptide.basics</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 
@@ -84,8 +85,40 @@ nb_path: "01_preprocessing_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DATASTORE</span> <span class="o">=</span> <span class="s1">&#39;/Users/Vinod/code/datasets/peptide&#39;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">DATASTORE</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DATA_STORE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;/Users/Vinod/.peptide/datasets&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -118,7 +151,9 @@ nb_path: "01_preprocessing_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATASTORE</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s1">/acp/train_data.csv&#39;</span><span class="p">)</span>
+<span class="n">amp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s1">/amp/all_data.csv&#39;</span><span class="p">)</span>
+<span class="n">dna_binding_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s1">/dna_binding/train.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -135,10 +170,206 @@ nb_path: "01_preprocessing_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">amp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">DATASTORE</span><span class="si">}</span><span class="s1">/amp/&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">[</span><span class="n">acp_df</span><span class="p">,</span> <span class="n">amp_df</span><span class="p">,</span> <span class="n">dna_binding_df</span><span class="p">]:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea "><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sequences</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RRWWRRWRRW</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GWKSVFRKAKKVGKTVGGLALDHYLG</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ALWKTMLKKLGTMALHAGKAALGAAADTISQGTQ</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GLFDVIKKVAAVIGGL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>VAKLLAKLAKKVL</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea "><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PDBs_code</th>
+      <th>SequenceID</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AP02484</td>
+      <td>GMASKAGSVLGKITKIALGAL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AP02630</td>
+      <td>NIGLFTSTCFSSQCFSSKCFTDTCFSSNCFTGRHQCGYTHGSC</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AP01427</td>
+      <td>GAIKDALKGAAKTVAVELLKKAQCKLEKTC</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AP02983</td>
+      <td>FFGRLKAVFRGARQGWKEHRY</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AP01815</td>
+      <td>DFGCARGMIFVCMRRCARMYPGSTGYCQGFRCMCDTMIPIRRPPFIMG</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea "><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>sequence</th>
+      <th>label</th>
+      <th>origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Q6A8L0</td>
+      <td>MSGHSKWATTKHKKAAIDAKRGKLFARLIKNIEVAARLGGGDPSGN...</td>
+      <td>1</td>
+      <td>https://github.com/hfuulgb/PDB-Fusion/tree/mai...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Q7V7T9</td>
+      <td>MIGWLQGQKVEAWQQGTRQGVVLACAGVGYEVQIAPRHLSEMEHGQ...</td>
+      <td>1</td>
+      <td>https://github.com/hfuulgb/PDB-Fusion/tree/mai...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Q9ZUP2</td>
+      <td>MARILRNVYSLRSSLFSSELLRRSVVGTSFQLRGFAAKAKKKSKSD...</td>
+      <td>1</td>
+      <td>https://github.com/hfuulgb/PDB-Fusion/tree/mai...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Q2JVG1</td>
+      <td>MKCPRCGKQEIRVLESRSAEGGQSVRRRRECMSCGYRFTTYERIEF...</td>
+      <td>1</td>
+      <td>https://github.com/hfuulgb/PDB-Fusion/tree/mai...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Q9K4Q3</td>
+      <td>MTKADIIEGVYEKVGFSKKESAEIVELVFDTLKETLERGDKIKISG...</td>
+      <td>1</td>
+      <td>https://github.com/hfuulgb/PDB-Fusion/tree/mai...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
 </div>
 </div>
 
