@@ -15,7 +15,8 @@ index = {"get_device": "00_basics.ipynb",
          "PATH_ACP": "00_basics.ipynb",
          "PATH_DNA_BINDING": "00_basics.ipynb"}
 
-modules = ["basics.py"]
+modules = ["basics.py",
+           "preprocessing/data.py"]
 
 doc_url = "https://vin00d.github.io/peptide/"
 
