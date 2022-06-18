@@ -1,0 +1,16 @@
+name: peptide
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - pandas
+  - requests
+  - pyyaml
+  - addict
+  - pytorch
+  - nbdev
+  - fastcore>=1.3.8
+  - matplotlib
+  - fastprogress>=0.2.4
+  - scikit-learn
