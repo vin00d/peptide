@@ -1,5 +1,5 @@
 # peptide
-> An open source ML library for peptide classification.
+> An open source library for peptide classification using Machine Learning and Deep Learning.
 
 
 This project aims to build a series of classifiers that can predict whether a given amino acid sequence is one or more of the 3 target peptides.<br>
@@ -27,7 +27,8 @@ Additionally, this project will compare models built with vastly different appro
 ## Install
 
 With conda
-- conda install -c conda-forge peptide
+- `conda install -c conda-forge peptide`
+
 With pip
 - `pip install peptide`
 

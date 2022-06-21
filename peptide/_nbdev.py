@@ -13,10 +13,15 @@ index = {"get_device": "00_basics.ipynb",
          "EXPERIMENT_STORE": "00_basics.ipynb",
          "PATH_AMP": "00_basics.ipynb",
          "PATH_ACP": "00_basics.ipynb",
-         "PATH_DNA_BINDING": "00_basics.ipynb"}
+         "PATH_DNA_BINDING": "00_basics.ipynb",
+         "get_acp_data": "01_preprocessing_data.ipynb",
+         "get_amp_data": "01_preprocessing_data.ipynb",
+         "get_dna_bind_data": "01_preprocessing_data.ipynb",
+         "get_all_data": "01_preprocessing_data.ipynb"}
 
 modules = ["basics.py",
-           "preprocessing/data.py"]
+           "preprocessing/data.py",
+           "preprocessing/embedding.py"]
 
 doc_url = "https://vin00d.github.io/peptide/"
 
