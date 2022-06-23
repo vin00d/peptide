@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Metrics
       url: metrics.html
+    - output: web,pdf
+      title: Baseline Models
+      url: baseline_models.html
     output: web
     title: peptide
   output: web

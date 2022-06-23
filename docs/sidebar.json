@@ -4,6 +4,7 @@
     "Basics": "basics.html",
     "Data": "preprocessing_data.html",
     "Embedding": "preprocessing_embedding.html",
-    "Metrics": "metrics.html"
+    "Metrics": "metrics.html",
+    "Baseline Models": "baseline_models.html"
   }
 }

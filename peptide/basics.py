@@ -4,6 +4,7 @@ __all__ = ['get_device', 'settings_template', 'read_settings', 'DEVICE', 'settin
            'MODEL_STORE', 'EXPERIMENT_STORE', 'PATH_AMP', 'PATH_ACP', 'PATH_DNA_BINDING']
 
 # Cell
+
 from addict import Dict
 from collections import OrderedDict
 from pathlib import Path
@@ -12,6 +13,7 @@ import yaml
 import torch
 
 # Cell
+
 def get_device():
     '''Checks to see if GPU is available and sets device to GPU or CPU'''
     use_cuda = torch.cuda.is_available()
@@ -24,6 +26,7 @@ def get_device():
     return device
 
 # Cell
+
 def settings_template():
     '''Create initial settings for library'''
     template = {
@@ -58,6 +61,7 @@ def read_settings():
     return settings
 
 # Cell
+
 DEVICE = get_device()
 settings = read_settings()
 
