@@ -18,6 +18,7 @@ index = {"get_device": "00_basics.ipynb",
          "get_amp_data": "01_preprocessing_data.ipynb",
          "get_dna_bind_data": "01_preprocessing_data.ipynb",
          "get_all_data": "01_preprocessing_data.ipynb",
+         "extract_features_labels": "01_preprocessing_data.ipynb",
          "one_hot_encode": "02_preprocessing_embedding.ipynb"}
 
 modules = ["basics.py",

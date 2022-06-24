@@ -97,7 +97,10 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">amino_acids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
+
+
+<span class="n">amino_acids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -232,7 +235,7 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span> <span class="o">=</span> <span class="n">acp_train_df</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_df</span> <span class="o">=</span> <span class="n">acp_train_df</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -249,7 +252,7 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_df</span>
 </pre></div>
 
     </div>
@@ -354,8 +357,7 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;seq_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;lenghts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_df</span><span class="p">,</span> <span class="n">small_features</span><span class="p">,</span> <span class="n">small_labels</span> <span class="o">=</span> <span class="n">extract_features_labels</span><span class="p">(</span><span class="n">small_df</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -372,7 +374,7 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_df</span>
 </pre></div>
 
     </div>
@@ -405,79 +407,68 @@ nb_path: "02_preprocessing_embedding.ipynb"
       <th></th>
       <th>sequence</th>
       <th>label_acp</th>
-      <th>seq_list</th>
       <th>lenghts</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>RRWWRRWRRW</td>
-      <td>0</td>
       <td>[R, R, W, W, R, R, W, R, R, W]</td>
+      <td>0</td>
       <td>10</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>GWKSVFRKAKKVGKTVGGLALDHYLG</td>
-      <td>0</td>
       <td>[G, W, K, S, V, F, R, K, A, K, K, V, G, K, T, ...</td>
+      <td>0</td>
       <td>26</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>ALWKTMLKKLGTMALHAGKAALGAAADTISQGTQ</td>
-      <td>1</td>
       <td>[A, L, W, K, T, M, L, K, K, L, G, T, M, A, L, ...</td>
+      <td>1</td>
       <td>34</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>GLFDVIKKVAAVIGGL</td>
-      <td>1</td>
       <td>[G, L, F, D, V, I, K, K, V, A, A, V, I, G, G, L]</td>
+      <td>1</td>
       <td>16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>VAKLLAKLAKKVL</td>
-      <td>1</td>
       <td>[V, A, K, L, L, A, K, L, A, K, K, V, L]</td>
+      <td>1</td>
       <td>13</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>IIGHLIKTALGFLGL</td>
-      <td>0</td>
       <td>[I, I, G, H, L, I, K, T, A, L, G, F, L, G, L]</td>
+      <td>0</td>
       <td>15</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>FLPLLASLFSRLL</td>
-      <td>1</td>
       <td>[F, L, P, L, L, A, S, L, F, S, R, L, L]</td>
+      <td>1</td>
       <td>13</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>WFKKIPKFLHLAKKF</td>
-      <td>1</td>
       <td>[W, F, K, K, I, P, K, F, L, H, L, A, K, K, F]</td>
+      <td>1</td>
       <td>15</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>ATCDLLSKWNWNHTACAGHCIAKGFKGGYCNDKAVCVCRN</td>
-      <td>1</td>
       <td>[A, T, C, D, L, L, S, K, W, N, W, N, H, T, A, ...</td>
+      <td>1</td>
       <td>40</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>NIPQLTPTP</td>
-      <td>0</td>
       <td>[N, I, P, Q, L, T, P, T, P]</td>
+      <td>0</td>
       <td>9</td>
     </tr>
   </tbody>
@@ -492,19 +483,6 @@ nb_path: "02_preprocessing_embedding.ipynb"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="One-hot-Encoding">One-hot Encoding<a class="anchor-link" href="#One-hot-Encoding"> </a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Amino acids by simply listing the letters in the alpabet</p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -512,109 +490,7 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe_example</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe_example</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">amino_acids</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>OneHotEncoder()</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe_example</span><span class="o">.</span><span class="n">categories_</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[array([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;J&#39;, &#39;K&#39;, &#39;L&#39;, &#39;M&#39;,
-        &#39;N&#39;, &#39;O&#39;, &#39;P&#39;, &#39;Q&#39;, &#39;R&#39;, &#39;S&#39;, &#39;T&#39;, &#39;U&#39;, &#39;V&#39;, &#39;W&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;],
-       dtype=&#39;&lt;U1&#39;)]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;seq_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_features</span>
 </pre></div>
 
     </div>
@@ -922,6 +798,198 @@ nb_path: "02_preprocessing_embedding.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_labels</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label_acp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="One-hot-Encoding">One-hot Encoding<a class="anchor-link" href="#One-hot-Encoding"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Amino acids by simply listing the letters in the alpabet</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe_example</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe_example</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">amino_acids</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>OneHotEncoder()</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe_example</span><span class="o">.</span><span class="n">categories_</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[array([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;J&#39;, &#39;K&#39;, &#39;L&#39;, &#39;M&#39;,
+        &#39;N&#39;, &#39;O&#39;, &#39;P&#39;, &#39;Q&#39;, &#39;R&#39;, &#39;S&#39;, &#39;T&#39;, &#39;U&#39;, &#39;V&#39;, &#39;W&#39;, &#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;],
+       dtype=&#39;&lt;U1&#39;)]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One-hot encoding with sklearn example</p>
@@ -983,8 +1051,8 @@ nb_path: "02_preprocessing_embedding.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">transformed_data</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features_df</span><span class="p">)</span>
-<span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">features_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">transformed_data</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">small_features</span><span class="p">)</span>
+<span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">small_features</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1361,7 +1429,7 @@ nb_path: "02_preprocessing_embedding.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_ohe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">features_df</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_ohe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">small_features</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">features_ohe</span>
 </pre></div>
 
@@ -1745,7 +1813,7 @@ Length: 147, dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1778,30 +1846,26 @@ Length: 147, dtype: int64</pre>
       <th></th>
       <th>sequence</th>
       <th>label_acp</th>
-      <th>seq</th>
       <th>lenghts</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>RRWWRRWRRW</td>
-      <td>0</td>
       <td>[R, R, W, W, R, R, W, R, R, W]</td>
+      <td>0</td>
       <td>10</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>GWKSVFRKAKKVGKTVGGLALDHYLG</td>
-      <td>0</td>
       <td>[G, W, K, S, V, F, R, K, A, K, K, V, G, K, T, ...</td>
+      <td>0</td>
       <td>26</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>ALWKTMLKKLGTMALHAGKAALGAAADTISQGTQ</td>
-      <td>1</td>
       <td>[A, L, W, K, T, M, L, K, K, L, G, T, M, A, L, ...</td>
+      <td>1</td>
       <td>34</td>
     </tr>
   </tbody>
@@ -2679,8 +2743,8 @@ Length: 147, dtype: int64</pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_mlb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_spmatrix</span><span class="p">(</span>
-    <span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;seq&#39;</span><span class="p">]),</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="n">small_train_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">small_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]),</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">small_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="n">mlb</span><span class="o">.</span><span class="n">classes_</span>
 <span class="p">)</span>
 </pre></div>
@@ -2991,7 +3055,7 @@ Length: 147, dtype: int64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span><span class="o">.</span><span class="n">sequence</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_df</span><span class="o">.</span><span class="n">sequence</span>
 </pre></div>
 
     </div>
@@ -3006,16 +3070,16 @@ Length: 147, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0                                  RRWWRRWRRW
-1                  GWKSVFRKAKKVGKTVGGLALDHYLG
-2          ALWKTMLKKLGTMALHAGKAALGAAADTISQGTQ
-3                            GLFDVIKKVAAVIGGL
-4                               VAKLLAKLAKKVL
-5                             IIGHLIKTALGFLGL
-6                               FLPLLASLFSRLL
-7                             WFKKIPKFLHLAKKF
-8    ATCDLLSKWNWNHTACAGHCIAKGFKGGYCNDKAVCVCRN
-9                                   NIPQLTPTP
+<pre>0                       [R, R, W, W, R, R, W, R, R, W]
+1    [G, W, K, S, V, F, R, K, A, K, K, V, G, K, T, ...
+2    [A, L, W, K, T, M, L, K, K, L, G, T, M, A, L, ...
+3     [G, L, F, D, V, I, K, K, V, A, A, V, I, G, G, L]
+4              [V, A, K, L, L, A, K, L, A, K, K, V, L]
+5        [I, I, G, H, L, I, K, T, A, L, G, F, L, G, L]
+6              [F, L, P, L, L, A, S, L, F, S, R, L, L]
+7        [W, F, K, K, I, P, K, F, L, H, L, A, K, K, F]
+8    [A, T, C, D, L, L, S, K, W, N, W, N, H, T, A, ...
+9                          [N, I, P, Q, L, T, P, T, P]
 Name: sequence, dtype: object</pre>
 </div>
 
@@ -3051,7 +3115,7 @@ Name: sequence, dtype: object</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="one_hot_encode" class="doc_header"><code>one_hot_encode</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/preprocessing/embedding.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>one_hot_encode</code>(<strong><code>df</code></strong>)</p>
+<h4 id="one_hot_encode" class="doc_header"><code>one_hot_encode</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/preprocessing/embedding.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>one_hot_encode</code>(<strong><code>df</code></strong>, <strong><code>sparse</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Create and return one-hot encoded features</p>
 
@@ -3072,6 +3136,62 @@ Name: sequence, dtype: object</pre>
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe</span><span class="p">,</span> <span class="n">transformed_df</span><span class="p">,</span> <span class="n">features_df</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">one_hot_encode</span><span class="p">(</span><span class="n">acp_train_df</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">acp_test_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>OneHotEncoder(sparse=False)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Old-Pandas-effort">Old Pandas effort<a class="anchor-link" href="#Old-Pandas-effort"> </a></h4>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">

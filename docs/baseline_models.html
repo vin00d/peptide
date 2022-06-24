@@ -251,6 +251,24 @@ nb_path: "04_baseline_models.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acp_train_df</span><span class="p">,</span> <span class="n">acp_train_features</span><span class="p">,</span> <span class="n">acp_train_labels</span> <span class="o">=</span> <span class="n">extract_features_labels</span><span class="p">(</span><span class="n">acp_train_df</span><span class="p">)</span>
+<span class="n">acp_test_df</span><span class="p">,</span> <span class="n">acp_test_features</span><span class="p">,</span> <span class="n">acp_test_labels</span> <span class="o">=</span> <span class="n">extract_features_labels</span><span class="p">(</span><span class="n">acp_test_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>One-hot encode</p>
@@ -265,8 +283,691 @@ nb_path: "04_baseline_models.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_features_ohe</span><span class="p">,</span> <span class="n">train_features_df</span><span class="p">,</span> <span class="n">train_df</span>  <span class="o">=</span> <span class="n">one_hot_encode</span><span class="p">(</span><span class="n">acp_train_df</span><span class="p">)</span>
-<span class="n">test_features_ohe</span><span class="p">,</span> <span class="n">test_features_df</span><span class="p">,</span> <span class="n">test_df</span>  <span class="o">=</span> <span class="n">one_hot_encode</span><span class="p">(</span><span class="n">acp_test_df</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acp_train_features</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>40</th>
+      <th>41</th>
+      <th>42</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>G</td>
+      <td>W</td>
+      <td>K</td>
+      <td>S</td>
+      <td>V</td>
+      <td>F</td>
+      <td>R</td>
+      <td>K</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>L</td>
+      <td>W</td>
+      <td>K</td>
+      <td>T</td>
+      <td>M</td>
+      <td>L</td>
+      <td>K</td>
+      <td>K</td>
+      <td>L</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>G</td>
+      <td>L</td>
+      <td>F</td>
+      <td>D</td>
+      <td>V</td>
+      <td>I</td>
+      <td>K</td>
+      <td>K</td>
+      <td>V</td>
+      <td>A</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1373</th>
+      <td>L</td>
+      <td>L</td>
+      <td>K</td>
+      <td>L</td>
+      <td>L</td>
+      <td>K</td>
+      <td>W</td>
+      <td>L</td>
+      <td>L</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1374</th>
+      <td>G</td>
+      <td>F</td>
+      <td>K</td>
+      <td>D</td>
+      <td>W</td>
+      <td>I</td>
+      <td>K</td>
+      <td>G</td>
+      <td>A</td>
+      <td>A</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1375</th>
+      <td>E</td>
+      <td>S</td>
+      <td>E</td>
+      <td>F</td>
+      <td>D</td>
+      <td>R</td>
+      <td>Q</td>
+      <td>E</td>
+      <td>Y</td>
+      <td>E</td>
+      <td>...</td>
+      <td>D</td>
+      <td>W</td>
+      <td>S</td>
+      <td>K</td>
+      <td>Y</td>
+      <td>D</td>
+      <td>N</td>
+      <td>Q</td>
+      <td>E</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1376</th>
+      <td>F</td>
+      <td>I</td>
+      <td>S</td>
+      <td>A</td>
+      <td>I</td>
+      <td>A</td>
+      <td>S</td>
+      <td>F</td>
+      <td>L</td>
+      <td>G</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1377</th>
+      <td>R</td>
+      <td>L</td>
+      <td>S</td>
+      <td>R</td>
+      <td>I</td>
+      <td>V</td>
+      <td>V</td>
+      <td>I</td>
+      <td>R</td>
+      <td>V</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>1378 rows × 50 columns</p>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">acp_test_features</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>40</th>
+      <th>41</th>
+      <th>42</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>F</td>
+      <td>L</td>
+      <td>P</td>
+      <td>L</td>
+      <td>L</td>
+      <td>L</td>
+      <td>S</td>
+      <td>A</td>
+      <td>L</td>
+      <td>P</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>D</td>
+      <td>K</td>
+      <td>L</td>
+      <td>I</td>
+      <td>G</td>
+      <td>S</td>
+      <td>C</td>
+      <td>V</td>
+      <td>W</td>
+      <td>L</td>
+      <td>...</td>
+      <td>W</td>
+      <td>C</td>
+      <td>E</td>
+      <td>T</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>V</td>
+      <td>K</td>
+      <td>D</td>
+      <td>T</td>
+      <td>Y</td>
+      <td>S</td>
+      <td>C</td>
+      <td>F</td>
+      <td>I</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>G</td>
+      <td>L</td>
+      <td>P</td>
+      <td>T</td>
+      <td>C</td>
+      <td>G</td>
+      <td>E</td>
+      <td>T</td>
+      <td>C</td>
+      <td>F</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>E</td>
+      <td>N</td>
+      <td>C</td>
+      <td>G</td>
+      <td>R</td>
+      <td>Q</td>
+      <td>A</td>
+      <td>G</td>
+      <td>None</td>
+      <td>None</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>L</td>
+      <td>L</td>
+      <td>K</td>
+      <td>K</td>
+      <td>L</td>
+      <td>L</td>
+      <td>K</td>
+      <td>W</td>
+      <td>L</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>G</td>
+      <td>L</td>
+      <td>L</td>
+      <td>L</td>
+      <td>D</td>
+      <td>T</td>
+      <td>L</td>
+      <td>K</td>
+      <td>G</td>
+      <td>A</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>F</td>
+      <td>W</td>
+      <td>G</td>
+      <td>A</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>G</td>
+      <td>A</td>
+      <td>L</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>G</td>
+      <td>C</td>
+      <td>L</td>
+      <td>E</td>
+      <td>F</td>
+      <td>W</td>
+      <td>W</td>
+      <td>K</td>
+      <td>C</td>
+      <td>N</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>F</td>
+      <td>N</td>
+      <td>R</td>
+      <td>G</td>
+      <td>G</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>F</td>
+      <td>G</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 50 columns</p>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">acp_train_features</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">acp_train_labels</span><span class="p">[</span><span class="s1">&#39;label_acp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -283,7 +984,8 @@ nb_path: "04_baseline_models.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_test</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">acp_test_features</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_test_labels</span><span class="p">[</span><span class="s1">&#39;label_acp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -300,7 +1002,7 @@ nb_path: "04_baseline_models.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_features_ohe</span><span class="p">,</span> <span class="n">acp_train_df</span><span class="o">.</span><span class="n">label_acp</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -315,7 +1017,179 @@ nb_path: "04_baseline_models.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>LogisticRegression()</pre>
+<pre>((1378, 1005), (1378,), (344, 1005), (344,))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Logistic Regression</strong></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LogisticRegression(max_iter=10000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>SVM</strong></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">svc</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LinearSVC(max_iter=10000)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>XGBoost</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Examples - <a href="https://www.kaggle.com/code/stuarthallows/using-xgboost-with-scikit-learn/notebook">https://www.kaggle.com/code/stuarthallows/using-xgboost-with-scikit-learn/notebook</a></p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xgb</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">()</span>
+<span class="n">xgb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/Vinod/opt/anaconda3/envs/peptide/lib/python3.9/site-packages/xgboost/sklearn.py:1224: UserWarning: The use of label encoder in XGBClassifier is deprecated and will be removed in a future release. To remove this warning, do the following: 1) Pass option use_label_encoder=False when constructing XGBClassifier object; and 2) Encode your labels (y) as integers starting with 0, i.e. 0, 1, 2, ..., [num_class - 1].
+  warnings.warn(label_encoder_deprecation_msg, UserWarning)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[23:28:08] WARNING: /Users/runner/miniforge3/conda-bld/xgboost-split_1645117948562/work/src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;binary:logistic&#39; was changed from &#39;error&#39; to &#39;logloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>XGBClassifier(base_score=0.5, booster=&#39;gbtree&#39;, colsample_bylevel=1,
+              colsample_bynode=1, colsample_bytree=1, enable_categorical=False,
+              gamma=0, gpu_id=-1, importance_type=None,
+              interaction_constraints=&#39;&#39;, learning_rate=0.300000012,
+              max_delta_step=0, max_depth=6, min_child_weight=1, missing=nan,
+              monotone_constraints=&#39;()&#39;, n_estimators=100, n_jobs=8,
+              num_parallel_tree=1, predictor=&#39;auto&#39;, random_state=0,
+              reg_alpha=0, reg_lambda=1, scale_pos_weight=1, subsample=1,
+              tree_method=&#39;exact&#39;, validate_parameters=1, verbosity=None)</pre>
 </div>
 
 </div>
@@ -333,7 +1207,46 @@ nb_path: "04_baseline_models.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_features_ohe</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_preds</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="n">svc_preds</span> <span class="o">=</span> <span class="n">svc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="n">xgb_preds</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">preds</span> <span class="ow">in</span> <span class="p">[</span><span class="n">lr_preds</span><span class="p">,</span> <span class="n">svc_preds</span><span class="p">,</span> <span class="n">xgb_preds</span><span class="p">]:</span>
+    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">preds</span><span class="p">),</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">preds</span><span class="p">),</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">preds</span><span class="p">)])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">,</span> <span class="s1">&#39;f1&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">,</span> <span class="s1">&#39;svc&#39;</span><span class="p">,</span> <span class="s1">&#39;xgb&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -345,77 +1258,53 @@ nb_path: "04_baseline_models.ipynb"
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/Vinod/opt/anaconda3/envs/peptide/lib/python3.9/site-packages/sklearn/base.py:493: FutureWarning: The feature names should match those that were passed during fit. Starting version 1.2, an error will be raised.
-Feature names unseen at fit time:
-- 36_M
-- 38_M
-- 40_H
-- 40_M
-- 42_Y
-- ...
-Feature names seen at fit time, yet now missing:
-- 0_N
-- 13_M
-- 16_M
-- 24_M
-- 26_W
-- ...
 
-  warnings.warn(message, FutureWarning)
-</pre>
-</div>
-</div>
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_area">
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">/Users/Vinod/code/myrepos/peptide/04_baseline_models.ipynb Cell 13&#39;</span> in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; &lt;a href=&#39;vscode-notebook-cell:/Users/Vinod/code/myrepos/peptide/04_baseline_models.ipynb#ch0000018?line=0&#39;&gt;1&lt;/a&gt;</span> preds = lr.predict(test_features_ohe)
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>acc</th>
+      <th>f1</th>
+      <th>precision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lr</th>
+      <td>0.747093</td>
+      <td>0.757660</td>
+      <td>0.727273</td>
+    </tr>
+    <tr>
+      <th>svc</th>
+      <td>0.697674</td>
+      <td>0.704545</td>
+      <td>0.688889</td>
+    </tr>
+    <tr>
+      <th>xgb</th>
+      <td>0.755814</td>
+      <td>0.770492</td>
+      <td>0.726804</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 
-File <span class="ansi-green-fg">~/opt/anaconda3/envs/peptide/lib/python3.9/site-packages/sklearn/linear_model/_base.py:425</span>, in <span class="ansi-cyan-fg">LinearClassifierMixin.predict</span><span class="ansi-blue-fg">(self, X)</span>
-<span class="ansi-green-intense-fg ansi-bold">    411</span> def predict(self, X):
-<span class="ansi-green-intense-fg ansi-bold">    412</span>     &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    413</span>     Predict class labels for samples in X.
-<span class="ansi-green-intense-fg ansi-bold">    414</span> 
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    423</span>         Vector containing the class labels for each sample.
-<span class="ansi-green-intense-fg ansi-bold">    424</span>     &#34;&#34;&#34;
-<span class="ansi-green-fg">--&gt; 425</span>     scores = self.decision_function(X)
-<span class="ansi-green-intense-fg ansi-bold">    426</span>     if len(scores.shape) == 1:
-<span class="ansi-green-intense-fg ansi-bold">    427</span>         indices = (scores &gt; 0).astype(int)
-
-File <span class="ansi-green-fg">~/opt/anaconda3/envs/peptide/lib/python3.9/site-packages/sklearn/linear_model/_base.py:407</span>, in <span class="ansi-cyan-fg">LinearClassifierMixin.decision_function</span><span class="ansi-blue-fg">(self, X)</span>
-<span class="ansi-green-intense-fg ansi-bold">    387</span> &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    388</span> Predict confidence scores for samples.
-<span class="ansi-green-intense-fg ansi-bold">    389</span> 
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    403</span>     this class would be predicted.
-<span class="ansi-green-intense-fg ansi-bold">    404</span> &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    405</span> check_is_fitted(self)
-<span class="ansi-green-fg">--&gt; 407</span> X = self._validate_data(X, accept_sparse=&#34;csr&#34;, reset=False)
-<span class="ansi-green-intense-fg ansi-bold">    408</span> scores = safe_sparse_dot(X, self.coef_.T, dense_output=True) + self.intercept_
-<span class="ansi-green-intense-fg ansi-bold">    409</span> return scores.ravel() if scores.shape[1] == 1 else scores
-
-File <span class="ansi-green-fg">~/opt/anaconda3/envs/peptide/lib/python3.9/site-packages/sklearn/base.py:585</span>, in <span class="ansi-cyan-fg">BaseEstimator._validate_data</span><span class="ansi-blue-fg">(self, X, y, reset, validate_separately, **check_params)</span>
-<span class="ansi-green-intense-fg ansi-bold">    582</span>     out = X, y
-<span class="ansi-green-intense-fg ansi-bold">    584</span> if not no_val_X and check_params.get(&#34;ensure_2d&#34;, True):
-<span class="ansi-green-fg">--&gt; 585</span>     self._check_n_features(X, reset=reset)
-<span class="ansi-green-intense-fg ansi-bold">    587</span> return out
-
-File <span class="ansi-green-fg">~/opt/anaconda3/envs/peptide/lib/python3.9/site-packages/sklearn/base.py:400</span>, in <span class="ansi-cyan-fg">BaseEstimator._check_n_features</span><span class="ansi-blue-fg">(self, X, reset)</span>
-<span class="ansi-green-intense-fg ansi-bold">    397</span>     return
-<span class="ansi-green-intense-fg ansi-bold">    399</span> if n_features != self.n_features_in_:
-<span class="ansi-green-fg">--&gt; 400</span>     raise ValueError(
-<span class="ansi-green-intense-fg ansi-bold">    401</span>         f&#34;X has {n_features} features, but {self.__class__.__name__} &#34;
-<span class="ansi-green-intense-fg ansi-bold">    402</span>         f&#34;is expecting {self.n_features_in_} features as input.&#34;
-<span class="ansi-green-intense-fg ansi-bold">    403</span>     )
-
-<span class="ansi-red-fg">ValueError</span>: X has 849 features, but LogisticRegression is expecting 958 features as input.</pre>
-</div>
 </div>
 
 </div>

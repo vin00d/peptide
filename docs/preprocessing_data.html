@@ -1373,8 +1373,23 @@ Test:  50.75%
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
 
 <span class="n">acp_train_df</span><span class="p">,</span> <span class="n">acp_test_df</span><span class="p">,</span> <span class="n">amp_train_df</span><span class="p">,</span> <span class="n">amp_test_df</span><span class="p">,</span> <span class="n">dna_bind_train_df</span><span class="p">,</span> <span class="n">dna_bind_test_df</span> <span class="o">=</span> <span class="n">all_dfs</span>
+</pre></div>
 
-<span class="n">merged_train_df</span><span class="p">,</span> <span class="n">merged_test_df</span> <span class="o">=</span> <span class="n">get_all_data</span><span class="p">(</span><span class="n">merge</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">merged_train_df</span><span class="p">,</span> <span class="n">merged_test_df</span> <span class="o">=</span> <span class="n">get_all_data</span><span class="p">(</span><span class="n">merge</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">merged_train_df</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">acp_train_df</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">amp_train_df</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_bind_train_df</span><span class="p">))</span>
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">merged_test_df</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">acp_test_df</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">amp_test_df</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna_bind_test_df</span><span class="p">))</span>
 </pre></div>
@@ -1468,6 +1483,1763 @@ Test:  50.75%
     </tr>
   </tbody>
 </table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Extract-Features">Extract Features<a class="anchor-link" href="#Extract-Features"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Small-Dataset-for-Experiments">Small Dataset for Experiments<a class="anchor-link" href="#Small-Dataset-for-Experiments"> </a></h4>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span> <span class="o">=</span> <span class="n">acp_train_df</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sequence</th>
+      <th>label_acp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RRWWRRWRRW</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GWKSVFRKAKKVGKTVGGLALDHYLG</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ALWKTMLKKLGTMALHAGKAALGAAADTISQGTQ</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GLFDVIKKVAAVIGGL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>VAKLLAKLAKKVL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>IIGHLIKTALGFLGL</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>FLPLLASLFSRLL</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>WFKKIPKFLHLAKKF</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ATCDLLSKWNWNHTACAGHCIAKGFKGGYCNDKAVCVCRN</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NIPQLTPTP</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;lenghts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">small_train_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sequence</th>
+      <th>label_acp</th>
+      <th>lenghts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[R, R, W, W, R, R, W, R, R, W]</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[G, W, K, S, V, F, R, K, A, K, K, V, G, K, T, ...</td>
+      <td>0</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[A, L, W, K, T, M, L, K, K, L, G, T, M, A, L, ...</td>
+      <td>1</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[G, L, F, D, V, I, K, K, V, A, A, V, I, G, G, L]</td>
+      <td>1</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[V, A, K, L, L, A, K, L, A, K, K, V, L]</td>
+      <td>1</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>[I, I, G, H, L, I, K, T, A, L, G, F, L, G, L]</td>
+      <td>0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>[F, L, P, L, L, A, S, L, F, S, R, L, L]</td>
+      <td>1</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>[W, F, K, K, I, P, K, F, L, H, L, A, K, K, F]</td>
+      <td>1</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>[A, T, C, D, L, L, S, K, W, N, W, N, H, T, A, ...</td>
+      <td>1</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>[N, I, P, Q, L, T, P, T, P]</td>
+      <td>0</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">small_train_df</span><span class="p">[</span><span class="s1">&#39;sequence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>30</th>
+      <th>31</th>
+      <th>32</th>
+      <th>33</th>
+      <th>34</th>
+      <th>35</th>
+      <th>36</th>
+      <th>37</th>
+      <th>38</th>
+      <th>39</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>G</td>
+      <td>W</td>
+      <td>K</td>
+      <td>S</td>
+      <td>V</td>
+      <td>F</td>
+      <td>R</td>
+      <td>K</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>L</td>
+      <td>W</td>
+      <td>K</td>
+      <td>T</td>
+      <td>M</td>
+      <td>L</td>
+      <td>K</td>
+      <td>K</td>
+      <td>L</td>
+      <td>...</td>
+      <td>Q</td>
+      <td>G</td>
+      <td>T</td>
+      <td>Q</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>G</td>
+      <td>L</td>
+      <td>F</td>
+      <td>D</td>
+      <td>V</td>
+      <td>I</td>
+      <td>K</td>
+      <td>K</td>
+      <td>V</td>
+      <td>A</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>I</td>
+      <td>I</td>
+      <td>G</td>
+      <td>H</td>
+      <td>L</td>
+      <td>I</td>
+      <td>K</td>
+      <td>T</td>
+      <td>A</td>
+      <td>L</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>F</td>
+      <td>L</td>
+      <td>P</td>
+      <td>L</td>
+      <td>L</td>
+      <td>A</td>
+      <td>S</td>
+      <td>L</td>
+      <td>F</td>
+      <td>S</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>W</td>
+      <td>F</td>
+      <td>K</td>
+      <td>K</td>
+      <td>I</td>
+      <td>P</td>
+      <td>K</td>
+      <td>F</td>
+      <td>L</td>
+      <td>H</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A</td>
+      <td>T</td>
+      <td>C</td>
+      <td>D</td>
+      <td>L</td>
+      <td>L</td>
+      <td>S</td>
+      <td>K</td>
+      <td>W</td>
+      <td>N</td>
+      <td>...</td>
+      <td>N</td>
+      <td>D</td>
+      <td>K</td>
+      <td>A</td>
+      <td>V</td>
+      <td>C</td>
+      <td>V</td>
+      <td>C</td>
+      <td>R</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>N</td>
+      <td>I</td>
+      <td>P</td>
+      <td>Q</td>
+      <td>L</td>
+      <td>T</td>
+      <td>P</td>
+      <td>T</td>
+      <td>P</td>
+      <td>None</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 40 columns</p>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Extract-Features-&amp;-Labels-Function">Extract Features &amp; Labels Function<a class="anchor-link" href="#Extract-Features-&amp;-Labels-Function"> </a></h4>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="extract_features_labels" class="doc_header"><code>extract_features_labels</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/preprocessing/data.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>extract_features_labels</code>(<strong><code>df</code></strong>)</p>
+</blockquote>
+<p>Extract features and separate labels</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">extract_features_labels</span><span class="p">(</span><span class="n">small_train_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sequence</th>
+      <th>label_acp</th>
+      <th>lenghts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[R, R, W, W, R, R, W, R, R, W]</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[G, W, K, S, V, F, R, K, A, K, K, V, G, K, T, ...</td>
+      <td>0</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[A, L, W, K, T, M, L, K, K, L, G, T, M, A, L, ...</td>
+      <td>1</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[G, L, F, D, V, I, K, K, V, A, A, V, I, G, G, L]</td>
+      <td>1</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[V, A, K, L, L, A, K, L, A, K, K, V, L]</td>
+      <td>1</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>[I, I, G, H, L, I, K, T, A, L, G, F, L, G, L]</td>
+      <td>0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>[F, L, P, L, L, A, S, L, F, S, R, L, L]</td>
+      <td>1</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>[W, F, K, K, I, P, K, F, L, H, L, A, K, K, F]</td>
+      <td>1</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>[A, T, C, D, L, L, S, K, W, N, W, N, H, T, A, ...</td>
+      <td>1</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>[N, I, P, Q, L, T, P, T, P]</td>
+      <td>0</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>30</th>
+      <th>31</th>
+      <th>32</th>
+      <th>33</th>
+      <th>34</th>
+      <th>35</th>
+      <th>36</th>
+      <th>37</th>
+      <th>38</th>
+      <th>39</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>G</td>
+      <td>W</td>
+      <td>K</td>
+      <td>S</td>
+      <td>V</td>
+      <td>F</td>
+      <td>R</td>
+      <td>K</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>L</td>
+      <td>W</td>
+      <td>K</td>
+      <td>T</td>
+      <td>M</td>
+      <td>L</td>
+      <td>K</td>
+      <td>K</td>
+      <td>L</td>
+      <td>...</td>
+      <td>Q</td>
+      <td>G</td>
+      <td>T</td>
+      <td>Q</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>G</td>
+      <td>L</td>
+      <td>F</td>
+      <td>D</td>
+      <td>V</td>
+      <td>I</td>
+      <td>K</td>
+      <td>K</td>
+      <td>V</td>
+      <td>A</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>I</td>
+      <td>I</td>
+      <td>G</td>
+      <td>H</td>
+      <td>L</td>
+      <td>I</td>
+      <td>K</td>
+      <td>T</td>
+      <td>A</td>
+      <td>L</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>F</td>
+      <td>L</td>
+      <td>P</td>
+      <td>L</td>
+      <td>L</td>
+      <td>A</td>
+      <td>S</td>
+      <td>L</td>
+      <td>F</td>
+      <td>S</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>W</td>
+      <td>F</td>
+      <td>K</td>
+      <td>K</td>
+      <td>I</td>
+      <td>P</td>
+      <td>K</td>
+      <td>F</td>
+      <td>L</td>
+      <td>H</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A</td>
+      <td>T</td>
+      <td>C</td>
+      <td>D</td>
+      <td>L</td>
+      <td>L</td>
+      <td>S</td>
+      <td>K</td>
+      <td>W</td>
+      <td>N</td>
+      <td>...</td>
+      <td>N</td>
+      <td>D</td>
+      <td>K</td>
+      <td>A</td>
+      <td>V</td>
+      <td>C</td>
+      <td>V</td>
+      <td>C</td>
+      <td>R</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>N</td>
+      <td>I</td>
+      <td>P</td>
+      <td>Q</td>
+      <td>L</td>
+      <td>T</td>
+      <td>P</td>
+      <td>T</td>
+      <td>P</td>
+      <td>None</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 40 columns</p>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label_acp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">extract_features_labels</span><span class="p">(</span><span class="n">merged_train_df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sequence</th>
+      <th>label_acp</th>
+      <th>label_amp</th>
+      <th>label_dna_bind</th>
+      <th>lenghts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[R, R, W, W, R, R, W, R, R, W]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[G, W, K, S, V, F, R, K, A, K, K, V, G, K, T, ...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[A, L, W, K, T, M, L, K, K, L, G, T, M, A, L, ...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[G, L, F, D, V, I, K, K, V, A, A, V, I, G, G, L]</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[V, A, K, L, L, A, K, L, A, K, K, V, L]</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>13</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>4901</th>
+      <th>4902</th>
+      <th>4903</th>
+      <th>4904</th>
+      <th>4905</th>
+      <th>4906</th>
+      <th>4907</th>
+      <th>4908</th>
+      <th>4909</th>
+      <th>4910</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>R</td>
+      <td>R</td>
+      <td>W</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>G</td>
+      <td>W</td>
+      <td>K</td>
+      <td>S</td>
+      <td>V</td>
+      <td>F</td>
+      <td>R</td>
+      <td>K</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>L</td>
+      <td>W</td>
+      <td>K</td>
+      <td>T</td>
+      <td>M</td>
+      <td>L</td>
+      <td>K</td>
+      <td>K</td>
+      <td>L</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>G</td>
+      <td>L</td>
+      <td>F</td>
+      <td>D</td>
+      <td>V</td>
+      <td>I</td>
+      <td>K</td>
+      <td>K</td>
+      <td>V</td>
+      <td>A</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>L</td>
+      <td>A</td>
+      <td>K</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18796</th>
+      <td>M</td>
+      <td>E</td>
+      <td>E</td>
+      <td>K</td>
+      <td>K</td>
+      <td>E</td>
+      <td>K</td>
+      <td>E</td>
+      <td>I</td>
+      <td>L</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>18797</th>
+      <td>M</td>
+      <td>S</td>
+      <td>T</td>
+      <td>I</td>
+      <td>A</td>
+      <td>D</td>
+      <td>P</td>
+      <td>R</td>
+      <td>D</td>
+      <td>I</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>18798</th>
+      <td>M</td>
+      <td>S</td>
+      <td>L</td>
+      <td>E</td>
+      <td>S</td>
+      <td>F</td>
+      <td>D</td>
+      <td>K</td>
+      <td>D</td>
+      <td>I</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>18799</th>
+      <td>M</td>
+      <td>A</td>
+      <td>L</td>
+      <td>K</td>
+      <td>S</td>
+      <td>Y</td>
+      <td>K</td>
+      <td>P</td>
+      <td>T</td>
+      <td>T</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>18800</th>
+      <td>M</td>
+      <td>K</td>
+      <td>L</td>
+      <td>P</td>
+      <td>I</td>
+      <td>Y</td>
+      <td>F</td>
+      <td>D</td>
+      <td>Y</td>
+      <td>S</td>
+      <td>...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+<p>18801 rows × 4911 columns</p>
+</div></div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label_acp</th>
+      <th>label_amp</th>
+      <th>label_dna_bind</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18796</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>18797</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>18798</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>18799</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>18800</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>18801 rows × 3 columns</p>
 </div></div>
 
 </div>

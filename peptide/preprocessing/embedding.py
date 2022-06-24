@@ -11,7 +11,7 @@ from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder
 
 # Cell
 
-def one_hot_encode(df):
+def one_hot_encode(df, sparse=True):
     '''Create and return one-hot encoded features'''
 
     df = df.copy()
@@ -19,7 +19,7 @@ def one_hot_encode(df):
     df['lenghts'] = df['sequence'].apply(lambda x: len(x))
     features_df = pd.DataFrame(df['seq_list'].to_list())
 
-    ohe = OneHotEncoder(sparse=True)
+    ohe = OneHotEncoder(sparse=sparse)
     transformed_data = ohe.fit_transform(features_df)
     transformed_df = pd.DataFrame(transformed_data, index=features_df.index)
 
