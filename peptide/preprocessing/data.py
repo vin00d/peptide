@@ -4,8 +4,13 @@ __all__ = ['get_acp_data', 'get_amp_data', 'get_dna_bind_data', 'get_all_data', 
 
 # Cell
 from ..basics import *
+
+from collections import Counter
 import pandas as pd
 import os
+
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Cell
 
@@ -78,7 +83,7 @@ def extract_features_labels(df):
     '''Extract features and separate labels'''
 
     df['sequence'] = df['sequence'].apply(lambda x: list(x))
-    df['lenghts'] = df['sequence'].apply(lambda x: len(x))
+    df['length'] = df['sequence'].apply(lambda x: len(x))
 
     features = pd.DataFrame(df['sequence'].to_list())
 
