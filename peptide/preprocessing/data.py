@@ -79,13 +79,15 @@ def get_all_data(test_pct=0.2, seed=1234, merge=False):
 
 # Cell
 
-def extract_features_labels(df):
+def extract_features_labels(df:pd.DataFrame, max_seq_len:int=None):
     '''Extract features and separate labels'''
 
     df['sequence'] = df['sequence'].apply(lambda x: list(x))
     df['length'] = df['sequence'].apply(lambda x: len(x))
 
     features = pd.DataFrame(df['sequence'].to_list())
+    if max_seq_len:
+        features = features.loc[:, :max_seq_len-1]
 
     label_cols = [lbl for lbl in df.columns if 'label_' in lbl]
     labels = pd.DataFrame(df[label_cols])
