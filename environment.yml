@@ -9,7 +9,10 @@ dependencies:
   - fastprogress[version='>=0.2.4'] #?
   - matplotlib
   - nbdev
+  - nvidia::cudatoolkit=11.3
   - pandas
+  - pip
+  - python=3.9
   - pytorch
   - pyyaml #?
   - requests #?
