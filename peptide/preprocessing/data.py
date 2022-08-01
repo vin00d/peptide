@@ -109,6 +109,9 @@ class AMPDataset(ProteinDataset):
         amp_test_df = amp_df.sample(frac=test_pct, random_state=seed)
         amp_train_df = amp_df.drop(amp_test_df.index)
 
+        amp_train_df.reset_index(inplace=True)
+        amp_test_df.reset_index(inplace=True)
+
         return amp_train_df, amp_test_df
 
 
