@@ -7,20 +7,22 @@ from ..basics import *
 
 from collections import Counter
 from abc import ABC, abstractmethod
+import os
 
 import pandas as pd
 import numpy as np
-import os
 
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+
 
 # Cell
-
-
 class ProteinDataset(ABC):
-    """Abstract base class for prtein datasets"""
+    """Abstract base class for protein datasets"""
 
     def __init__(self, location: str, max_seq_len: int = None):
         self.location = location
@@ -35,22 +37,52 @@ class ProteinDataset(ABC):
     ) -> tuple[pd.DataFrame, pd.DataFrame, np.array]:
         """Extract features and separate labels"""
 
-        df["sequence"] = df["sequence"].apply(lambda x: list(x))
-        df["length"] = df["sequence"].apply(lambda x: len(x))
+        df["seq_list"] = df["sequence"].apply(lambda x: list(x))
+        df["length"] = df["seq_list"].apply(lambda x: len(x))
 
-        features = pd.DataFrame(df["sequence"].to_list())
+        features = pd.DataFrame(df["seq_list"].to_list())
         if self.max_seq_len:
             features = features.loc[:, : self.max_seq_len - 1]
 
-        label_cols = [lbl for lbl in df.columns if "label" in lbl]
-        labels = pd.DataFrame(df[label_cols])
+        labels = np.ravel(df["label"].to_numpy())
 
-        return df, features, np.ravel(labels.to_numpy())
+        df.drop(columns=["seq_list"], inplace=True)
+
+        return df, features, labels
+
+    def generate_fasta_files(self, out_dir: str = None, use_seq_max_len: bool = False):
+        """Generate a fasta files for the given protein dataset."""
+
+        ds_name = type(self).__name__
+        location = out_dir if out_dir else self.location
+
+        for df, split in zip([self.train, self.test], ["train", "test"]):
+
+            seq_recs = []
+            for i in range(len(df)):
+                seq, lbl = df.loc[i, ["sequence", "label"]]
+                seq_recs.append(
+                    SeqRecord(
+                        Seq(seq),
+                        id=str(i),
+                        description=f'|{lbl}',
+                        )
+                )
+
+            if use_seq_max_len:  # truncate sequences
+                seq_recs = [seq_rec[: self.max_seq_len] for seq_rec in seq_recs]
+                file_name = f"{location}/{ds_name}_{split}_seqlen_{self.max_seq_len}.fasta"
+            else:
+                file_name = f"{location}/{ds_name}_{split}.fasta"
+
+            # write fasta file
+            with open(file_name, "w") as output_handle:
+                SeqIO.write(seq_recs, output_handle, "fasta")
+
+            print(f"Created {file_name} with {len(seq_recs)} sequence records")
 
 
 # Cell
-
-
 class ACPDataset(ProteinDataset):
     """Anticancer Peptide Dataset"""
 
@@ -67,19 +99,13 @@ class ACPDataset(ProteinDataset):
         acp_train_df = pd.read_csv(f"{self.location}/acp/train_data.csv")
         acp_test_df = pd.read_csv(f"{self.location}/acp/test_data.csv")
 
-        acp_train_df.rename(
-            columns={"sequences": "sequence", "label": "label_acp"}, inplace=True
-        )
-        acp_test_df.rename(
-            columns={"sequences": "sequence", "label": "label_acp"}, inplace=True
-        )
+        acp_train_df.rename(columns={"sequences": "sequence"}, inplace=True)
+        acp_test_df.rename(columns={"sequences": "sequence"}, inplace=True)
 
         return acp_train_df, acp_test_df
 
 
 # Cell
-
-
 class AMPDataset(ProteinDataset):
     """Antimicrobial Peptide Dataset"""
 
@@ -102,9 +128,7 @@ class AMPDataset(ProteinDataset):
         amp_df = pd.read_csv(f"{self.location}/amp/all_data.csv")
 
         amp_df.drop(columns=["PDBs_code"], inplace=True)
-        amp_df.rename(
-            columns={"SequenceID": "sequence", "label": "label_amp"}, inplace=True
-        )
+        amp_df.rename(columns={"SequenceID": "sequence"}, inplace=True)
 
         amp_test_df = amp_df.sample(frac=test_pct, random_state=seed)
         amp_train_df = amp_df.drop(amp_test_df.index)
@@ -116,8 +140,6 @@ class AMPDataset(ProteinDataset):
 
 
 # Cell
-
-
 class DNABindDataset(ProteinDataset):
     """DNA Binding Protein Dataset"""
 
@@ -137,8 +159,5 @@ class DNABindDataset(ProteinDataset):
 
         dna_bind_train_df.drop(columns=["code", "origin"], inplace=True)
         dna_bind_test_df.drop(columns=["code", "origin"], inplace=True)
-
-        dna_bind_train_df.rename(columns={"label": "label_dna_bind"}, inplace=True)
-        dna_bind_test_df.rename(columns={"label": "label_dna_bind"}, inplace=True)
 
         return dna_bind_train_df, dna_bind_test_df
