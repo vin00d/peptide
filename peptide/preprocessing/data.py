@@ -8,6 +8,7 @@ from ..basics import *
 from collections import Counter
 from abc import ABC, abstractmethod
 import os
+from pathlib import Path
 
 import pandas as pd
 import numpy as np
@@ -19,12 +20,18 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 
+import h5py
+import esm
+
+import torch
+
 
 # Cell
 class ProteinDataset(ABC):
     """Abstract base class for protein datasets"""
 
-    def __init__(self, location: str, max_seq_len: int = None):
+    def __init__(self, name: str, location: str, max_seq_len: int = None):
+        self.name = name
         self.location = location
         self.max_seq_len = max_seq_len
 
@@ -50,14 +57,16 @@ class ProteinDataset(ABC):
 
         return df, features, labels
 
-    def generate_fasta_files(self, out_dir: str = None, use_seq_max_len: bool = False):
+    def generate_fasta_files(self, out_dir: str = None, use_seq_max_len: bool = False) -> None:
         """Generate a fasta files for the given protein dataset."""
 
-        ds_name = type(self).__name__
-        location = out_dir if out_dir else self.location
+        ds_name = self.name
+        location = (
+            Path(out_dir) if out_dir else Path(f"{self.location}/{ds_name}/fasta")
+        )
+        location.mkdir(parents=True, exist_ok=True)
 
         for df, split in zip([self.train, self.test], ["train", "test"]):
-
             seq_recs = []
             for i in range(len(df)):
                 seq, lbl = df.loc[i, ["sequence", "label"]]
@@ -65,13 +74,16 @@ class ProteinDataset(ABC):
                     SeqRecord(
                         Seq(seq),
                         id=str(i),
-                        description=f'|{lbl}',
-                        )
+                        description=f"|{lbl}",
+                    )
                 )
 
-            if use_seq_max_len:  # truncate sequences
+            # truncate sequences or not
+            if use_seq_max_len:
                 seq_recs = [seq_rec[: self.max_seq_len] for seq_rec in seq_recs]
-                file_name = f"{location}/{ds_name}_{split}_seqlen_{self.max_seq_len}.fasta"
+                file_name = (
+                    f"{location}/{ds_name}_{split}_seqlen_{self.max_seq_len}.fasta"
+                )
             else:
                 file_name = f"{location}/{ds_name}_{split}.fasta"
 
@@ -79,7 +91,81 @@ class ProteinDataset(ABC):
             with open(file_name, "w") as output_handle:
                 SeqIO.write(seq_recs, output_handle, "fasta")
 
+            # print counts
             print(f"Created {file_name} with {len(seq_recs)} sequence records")
+        return
+
+    def get_lstm_emb(
+        self, train_h5_file: str, test_h5_file: str, h5_location: str = None
+    ) -> tuple[np.array, np.array, np.array, np.array]:
+        """Read ProSE LSTM embeddings from HDF5 files"""
+
+        def _get_emb(h5_file):
+            Xs = []
+            ys = []
+            with h5py.File(h5_file, "r") as f:
+                for key in f.keys():
+                    label = key.split("|")[-1]
+                    ys.append(int(label))
+                    seq = f[key][()]
+                    Xs.append(seq)
+            Xs = np.stack(Xs, axis=0)
+            ys = np.stack(ys, axis=0)
+            return Xs, ys
+
+        h5_path = (
+            Path(h5_location) if h5_location else Path(f"{self.location}/{self.name}/lstm")
+        )
+        train_file = Path(f"{h5_path}/{train_h5_file}")
+        test_file = Path(f"{h5_path}/{test_h5_file}")
+
+        X_train, y_train = _get_emb(train_file)
+        X_test, y_test = _get_emb(test_file)
+
+        return X_train, y_train, X_test, y_test
+
+    def get_transformer_emb(
+        self,
+        train_fasta_file: str,
+        test_fasta_file: str,
+        fasta_location: str = None,
+        emb_location: str = None,
+        emb_layer: int = 33,
+    ):
+        """Read ESM Transformer embeddings"""
+
+        def _get_emb(fasta_file, emb_path, emb_layer):
+            ys = []
+            Xs = []
+            for header, _seq in esm.data.read_fasta(fasta_file):
+                label = header.split("|")[-1]
+                ys.append(int(label))
+                emb_file = f"{emb_path}/{header[1:]}.pt"
+                embs = torch.load(emb_file)
+                Xs.append(embs["mean_representations"][emb_layer])
+            Xs = np.stack(Xs, axis=0)
+            ys = np.stack(ys, axis=0)
+            return Xs, ys
+
+        fasta_path = (
+            Path(fasta_location)
+            if fasta_location
+            else Path(f"{self.location}/{self.name}/fasta")
+        )
+        train_fasta = Path(f"{fasta_path}/{train_fasta_file}")
+        test_fasta = Path(f"{fasta_path}/{test_fasta_file}")
+        emb_path = (
+            Path(emb_location)
+            if emb_location
+            else Path(f"{self.location}/{self.name}/transformer")
+        )
+        train_emb = Path(f"{emb_path}/train")
+        test_emb = Path(f"{emb_path}/test")
+
+        X_train, y_train = _get_emb(train_fasta, train_emb, emb_layer)
+        X_test, y_test = _get_emb(test_fasta, test_emb, emb_layer)
+
+        return X_train, y_train, X_test, y_test
 
 
 # Cell
@@ -88,7 +174,7 @@ class ACPDataset(ProteinDataset):
 
     def __init__(self, location: str, max_seq_len: int = None):
         """Load, clean ,extract labels & features for ACP train and test"""
-        super().__init__(location, max_seq_len)
+        super().__init__('acp', location, max_seq_len)
 
         train_df, test_df = self.clean_data()
         self.train, self.X_train, self.y_train = self.extract_features_labels(train_df)
@@ -113,7 +199,7 @@ class AMPDataset(ProteinDataset):
         self, location: str, max_seq_len: int = 150, test_pct: float = 0.2, seed=1234
     ):
         """Load, clean ,extract labels & features for AMP train and test"""
-        super().__init__(location, max_seq_len)
+        super().__init__('amp', location, max_seq_len)
         self.test_pct = test_pct
         self.seed = seed
 
@@ -145,7 +231,7 @@ class DNABindDataset(ProteinDataset):
 
     def __init__(self, location: str, max_seq_len: int = 300):
         """Load, clean ,extract labels & features for ACP train and test"""
-        super().__init__(location, max_seq_len)
+        super().__init__('dna', location, max_seq_len)
 
         train_df, test_df = self.clean_data()
         self.train, self.X_train, self.y_train = self.extract_features_labels(train_df)
@@ -154,8 +240,8 @@ class DNABindDataset(ProteinDataset):
     def clean_data(self) -> tuple[pd.DataFrame, pd.DataFrame]:
         """Load, clean and return DNABind train and test dataframes"""
 
-        dna_bind_train_df = pd.read_csv(f"{self.location}/dna_binding/train.csv")
-        dna_bind_test_df = pd.read_csv(f"{self.location}/dna_binding/test.csv")
+        dna_bind_train_df = pd.read_csv(f"{self.location}/dna/train.csv")
+        dna_bind_test_df = pd.read_csv(f"{self.location}/dna/test.csv")
 
         dna_bind_train_df.drop(columns=["code", "origin"], inplace=True)
         dna_bind_test_df.drop(columns=["code", "origin"], inplace=True)
