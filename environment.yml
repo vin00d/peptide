@@ -19,6 +19,8 @@ dependencies:
   - requests #?
   - scikit-learn
   - seaborn
+  - tqdm
   - pip:
-      - xgboost
       - biopython
+      - fair-esm
+      - xgboost
