@@ -2,9 +2,10 @@
   "peptide": {
     "Overview": "/",
     "Basics": "basics.html",
-    "Data": "preprocessing_data.html",
-    "Embedding": "preprocessing_embedding.html",
-    "Metrics": "metrics.html",
-    "Baseline Models": "baseline_models.html"
+    "Data": "data.html",
+    "Onehot Encoding": "onehot.html",
+    "LSTM Embeddings": "lstm.html",
+    "Transformer Embeddings": "transformer.html",
+    "Title": "utils.html"
   }
 }

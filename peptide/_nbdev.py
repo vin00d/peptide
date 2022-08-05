@@ -14,15 +14,20 @@ index = {"get_device": "00_basics.ipynb",
          "PATH_AMP": "00_basics.ipynb",
          "PATH_ACP": "00_basics.ipynb",
          "PATH_DNA_BINDING": "00_basics.ipynb",
-         "ProteinDataset": "01_preprocessing_data.ipynb",
-         "ACPDataset": "01_preprocessing_data.ipynb",
-         "AMPDataset": "01_preprocessing_data.ipynb",
-         "DNABindDataset": "01_preprocessing_data.ipynb",
-         "one_hot_encode": "02_preprocessing_embedding.ipynb"}
+         "ProteinDataset": "01_data.ipynb",
+         "ACPDataset": "01_data.ipynb",
+         "AMPDataset": "01_data.ipynb",
+         "DNABindDataset": "01_data.ipynb",
+         "create_param_grid": "02_onehot.ipynb",
+         "run_gridsearch": "02_onehot.ipynb",
+         "visualize_2pcas": "99_utils.ipynb",
+         "visualize_3pcas": "99_utils.ipynb",
+         "train_predict": "99_utils.ipynb"}
 
 modules = ["basics.py",
-           "preprocessing/data.py",
-           "preprocessing/embedding.py"]
+           "data.py",
+           "onehot.py",
+           "utils.py"]
 
 doc_url = "https://vin00d.github.io/peptide/"
 

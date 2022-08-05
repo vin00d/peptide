@@ -14,16 +14,19 @@ entries:
       url: basics.html
     - output: web,pdf
       title: Data
-      url: preprocessing_data.html
+      url: data.html
     - output: web,pdf
-      title: Embedding
-      url: preprocessing_embedding.html
+      title: Onehot Encoding
+      url: onehot.html
     - output: web,pdf
-      title: Metrics
-      url: metrics.html
+      title: LSTM Embeddings
+      url: lstm.html
     - output: web,pdf
-      title: Baseline Models
-      url: baseline_models.html
+      title: Transformer Embeddings
+      url: transformer.html
+    - output: web,pdf
+      title: Title
+      url: utils.html
     output: web
     title: peptide
   output: web
