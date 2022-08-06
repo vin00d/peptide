@@ -53,6 +53,41 @@ nb_path: "01_data.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from collections import Counter</span>
+<span class="c1"># from abc import ABC, abstractmethod</span>
+<span class="c1"># import os</span>
+<span class="c1"># from pathlib import Path</span>
+
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># import numpy as np</span>
+
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import seaborn as sns</span>
+
+<span class="c1"># from Bio import SeqIO</span>
+<span class="c1"># from Bio.Seq import Seq</span>
+<span class="c1"># from Bio.SeqRecord import SeqRecord</span>
+
+<span class="c1"># import h5py</span>
+<span class="c1"># import esm</span>
+
+<span class="c1"># import torch</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Protein,-Peptides,-Amino-Acids---Basics">Protein, Peptides, Amino Acids - Basics<a class="anchor-link" href="#Protein,-Peptides,-Amino-Acids---Basics"> </a></h2>
@@ -1392,7 +1427,7 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L30" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
+<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L11" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
 </blockquote>
 <p>Abstract base class for protein datasets</p>
 
@@ -1424,7 +1459,7 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L177" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+<h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L158" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
 <p>Anticancer Peptide Dataset</p>
 
@@ -1456,7 +1491,7 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L200" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+<h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L181" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
 <p>Antimicrobial Peptide Dataset</p>
 
@@ -1488,7 +1523,7 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L234" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+<h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L215" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
 <p>DNA Binding Protein Dataset</p>
 

@@ -16,6 +16,9 @@ entries:
       title: Data
       url: data.html
     - output: web,pdf
+      title: Core
+      url: core.html
+    - output: web,pdf
       title: Onehot Encoding
       url: onehot.html
     - output: web,pdf
@@ -24,9 +27,6 @@ entries:
     - output: web,pdf
       title: Transformer Embeddings
       url: transformer.html
-    - output: web,pdf
-      title: Title
-      url: utils.html
     output: web
     title: peptide
   output: web

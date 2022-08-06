@@ -3,9 +3,9 @@
     "Overview": "/",
     "Basics": "basics.html",
     "Data": "data.html",
+    "Core": "core.html",
     "Onehot Encoding": "onehot.html",
     "LSTM Embeddings": "lstm.html",
-    "Transformer Embeddings": "transformer.html",
-    "Title": "utils.html"
+    "Transformer Embeddings": "transformer.html"
   }
 }
