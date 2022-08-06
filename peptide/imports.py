@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from collections import OrderedDict
+from collections import Counter  # , OrderedDict
 from abc import ABC, abstractmethod
 from pathlib import Path
 from addict import Dict
@@ -19,11 +19,19 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score
+from sklearn.metrics import (
+    accuracy_score,
+    recall_score,
+    precision_score,
+    f1_score,
+    classification_report,
+    silhouette_score,
+)
 from sklearn.model_selection import GridSearchCV
+from sklearn.cluster import KMeans
+from sklearn.semi_supervised import LabelSpreading
 
 from xgboost import XGBClassifier
-
 
 from Bio import SeqIO
 from Bio.Seq import Seq

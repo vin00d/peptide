@@ -22,8 +22,12 @@ index = {"get_device": "00_basics.ipynb",
          "visualize_3pcs": "02_core.ipynb",
          "train_predict": "02_core.ipynb",
          "Learner": "02_core.ipynb",
-         "create_param_grid": "03_onehot.ipynb",
-         "run_gridsearch": "03_onehot.ipynb"}
+         "visualize_elbow": "02_core.ipynb",
+         "plot_silhouette_scores": "02_core.ipynb",
+         "visualize_clusters": "02_core.ipynb",
+         "pick_k": "02_core.ipynb",
+         "analyze_clusters": "02_core.ipynb",
+         "run_label_spreading": "02_core.ipynb"}
 
 modules = ["basics.py",
            "data.py",
