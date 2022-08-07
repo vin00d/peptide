@@ -18,23 +18,22 @@ index = {"get_device": "00_basics.ipynb",
          "ACPDataset": "01_data.ipynb",
          "AMPDataset": "01_data.ipynb",
          "DNABindDataset": "01_data.ipynb",
-         "visualize_2pcs": "02_core.ipynb",
-         "visualize_3pcs": "02_core.ipynb",
-         "train_predict": "02_core.ipynb",
-         "Learner": "02_core.ipynb",
-         "visualize_elbow": "02_core.ipynb",
-         "plot_silhouette_scores": "02_core.ipynb",
-         "visualize_clusters": "02_core.ipynb",
-         "pick_k": "02_core.ipynb",
-         "analyze_clusters": "02_core.ipynb",
-         "run_label_spreading": "02_core.ipynb"}
+         "Learner": "02_learn.ipynb",
+         "get_default_param_grid": "99_utils.ipynb",
+         "visualize_2pcs": "99_utils.ipynb",
+         "visualize_3pcs": "99_utils.ipynb",
+         "train_predict": "99_utils.ipynb",
+         "visualize_elbow": "99_utils.ipynb",
+         "plot_silhouette_scores": "99_utils.ipynb",
+         "visualize_clusters": "99_utils.ipynb"}
 
 modules = ["basics.py",
            "data.py",
-           "core.py",
+           "learn.py",
            "onehot.py",
            "lstm.py",
-           "transformer.py"]
+           "transformer.py",
+           "utils.py"]
 
 doc_url = "https://vin00d.github.io/peptide/"
 

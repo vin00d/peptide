@@ -6,7 +6,8 @@ __all__ = []
 
 from .imports import *
 from .basics import *
-from .core import *
+from .utils import *
+from .learn import Learner
 from .data import (
     ACPDataset,
     AMPDataset,
