@@ -27,32 +27,32 @@ class Learner:
         scaler: bool = False,
         pca: bool = True,
         pca_n_components: int = 50,
-        param_grid: list = None,
+        param_grids: list = None,
     ):
         """Initialize learner for training and prediction."""
         self.classifiers = ["LogisticRegression", "LinearSVC", "XGBClassifier"]
         self.X_train, self.y_train = X_train, y_train
         self.X_test, self.y_test = X_test, y_test
-        self.pipeline = self.create_pipeline(ohe, scaler, pca, pca_n_components)
+        self.ohe, self.scaler, self.pca = ohe, scaler, pca
+        self.pca_n_components = pca_n_components
+        self.pipeline = self.create_pipeline()
         self.param_grids = (
-            get_default_param_grid() if param_grid is None else param_grid
+            get_default_param_grid() if param_grids is None else param_grids
         )
 
         self.grid_list, self.train_results = [], []
         self.predict_results = None
 
-    def create_pipeline(
-        self, ohe: bool, scaler: bool, pca: bool, pca_n_components
-    ) -> Pipeline:
+    def create_pipeline(self) -> Pipeline:
         """Create and return pipeline"""
 
         steps = []
-        if ohe:
+        if self.ohe:
             steps.append(("ohe", OneHotEncoder(handle_unknown="ignore", sparse=False)))
-        if scaler:
+        if self.scaler:
             steps.append(("scaler", StandardScaler()))
-        if pca:
-            steps.append(("pca", PCA(n_components=pca_n_components)))
+        if self.pca:
+            steps.append(("pca", PCA(n_components=self.pca_n_components)))
         steps.append(("classifier", "passthrough"))
 
         pipe = Pipeline(steps)
@@ -140,8 +140,6 @@ class Learner:
     def pick_k(
         self,
         max_clusters: int = 10,
-        ohe: bool = False,
-        scaler: bool = False,
         pca_n_components: int = 50,
     ) -> np.ndarray:
         """Visualize elbow & silhouette plots and print silhouette scores to help determine k for KMeans."""
@@ -150,24 +148,24 @@ class Learner:
         X = np.concatenate((self.X_train, self.X_test), axis=0)
         assert (self.X_train.shape[0] + self.X_test.shape[0]) == X.shape[0]
 
-        if ohe:  # One Hot Encode X
+        if self.ohe:  # One Hot Encode X
             ohe = OneHotEncoder(handle_unknown="ignore", sparse=False)
             X = ohe.fit_transform(X)
 
-        if scaler:  # Scale
+        if self.scaler:  # Scale
             scalr = StandardScaler()
             X = scalr.fit_transform(X)
 
-        # Dim Reduce X
-        pca = PCA(n_components=pca_n_components)
-        X_pca = pca.fit_transform(X)
+        if self.pca:  # Dim Reduce X
+            pca = PCA(n_components=pca_n_components)
+            X = pca.fit_transform(X)
 
         # visualize elbow plot
-        visualize_elbow(X_pca, np.arange(2, max_clusters))
+        visualize_elbow(X, np.arange(2, max_clusters))
         # visualize silhouette scores and plot
-        plot_silhouette_scores(max_clusters=max_clusters, X=X_pca)
+        plot_silhouette_scores(max_clusters=max_clusters, X=X)
 
-        return X_pca
+        return X
 
     def analyze_clusters(
         self, X_pca: np.ndarray, k: int, random_state: int = 10
@@ -182,8 +180,6 @@ class Learner:
 
     def run_label_spreading(
         self,
-        ohe: bool = False,
-        scaler: bool = False,
         pca_n_components: int = 50,
     ) -> None:
         """Run Lanel Spreading and print classification report."""
@@ -196,21 +192,21 @@ class Learner:
         y = np.concatenate((self.y_train, np.full(self.y_test.shape, -1)), axis=0)
         assert (self.y_train.shape[0] + self.y_test.shape[0]) == y.shape[0]
 
-        if ohe:  # One Hot Encode X
+        if self.ohe:  # One Hot Encode X
             ohe = OneHotEncoder(handle_unknown="ignore", sparse=False)
             X = ohe.fit_transform(X)
 
-        if scaler:  # Scale
+        if self.scaler:  # Scale
             scalr = StandardScaler()
             X = scalr.fit_transform(X)
 
-        # Dim Reduce X
-        pca = PCA(n_components=pca_n_components)
-        X_pca = pca.fit_transform(X)
+        if self.pca:  # Dim Reduce X
+            pca = PCA(n_components=pca_n_components)
+            X = pca.fit_transform(X)
 
         # Run LableSpreading
         lbl_spread = LabelSpreading(kernel="knn", alpha=0.01)
-        lbl_spread.fit(X_pca, y)
+        lbl_spread.fit(X, y)
         semi_sup_preds = lbl_spread.transduction_[self.X_train.shape[0] :]
         assert semi_sup_preds.shape[0] == self.X_test.shape[0]
 
