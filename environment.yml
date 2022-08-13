@@ -8,7 +8,7 @@ dependencies:
   - ipykernel
   - matplotlib
   - nbdev<2
-  - numpy
+  # - numpy<1.22
   - nvidia::cudatoolkit=11.3
   - pandas
   - pip
@@ -16,9 +16,9 @@ dependencies:
   - pytorch
   - pyyaml
   - scikit-learn
-  - scipy
+  # - scipy
   - seaborn
-  - threadpoolctl>3
+  # - threadpoolctl>3
   - tqdm
   - pip:
       - biopython

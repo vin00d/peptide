@@ -117,12 +117,12 @@ nb_path: "nbs/04_lstm.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">record</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span>
-    <span class="n">Seq</span><span class="p">(</span><span class="s2">"MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF"</span><span class="p">),</span>
-    <span class="nb">id</span><span class="o">=</span><span class="s2">"YP_025292.1"</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"HokC"</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">"toxic membrane protein, small"</span><span class="p">,</span>
+    <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF&quot;</span><span class="p">),</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;YP_025292.1&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;HokC&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;toxic membrane protein, small&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'fasta'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;fasta&#39;</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -339,7 +339,7 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'acp_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'acp_avgpool_test.h5'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;acp_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;acp_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -375,9 +375,9 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">X_train_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'X_train_pca.shape: </span><span class="si">{</span><span class="n">X_train_pca</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X_train_pca.shape: </span><span class="si">{</span><span class="n">X_train_pca</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"Explained variance ratio of the first 10 principal components:</span><span class="se">\n</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s2">&quot;Explained variance ratio of the first 10 principal components:</span><span class="se">\n</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -657,11 +657,11 @@ Explained variance ratio of the first 10 principal components:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'acp_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'acp_avgpool_test.h5'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;acp_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;acp_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">acp_avgpool_learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> 
 
 <span class="c1"># max pool Learner</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'acp_maxpool_train.h5'</span><span class="p">,</span> <span class="s1">'acp_maxpool_test.h5'</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;acp_maxpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;acp_maxpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">acp_maxpool_learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> 
 </pre></div>
 
@@ -1157,7 +1157,7 @@ n_clusters: 10 -- avg silhouette score: 0.18539342284202576
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">amp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'amp_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'amp_avgpool_test.h5'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">amp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;amp_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -1193,9 +1193,9 @@ n_clusters: 10 -- avg silhouette score: 0.18539342284202576
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">X_train_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'X_train_pca.shape: </span><span class="si">{</span><span class="n">X_train_pca</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X_train_pca.shape: </span><span class="si">{</span><span class="n">X_train_pca</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"Explained variance ratio of the first 10 principal components:</span><span class="se">\n</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s2">&quot;Explained variance ratio of the first 10 principal components:</span><span class="se">\n</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -1475,11 +1475,11 @@ Explained variance ratio of the first 10 principal components:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">amp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'amp_maxpool_train.h5'</span><span class="p">,</span> <span class="s1">'amp_maxpool_test.h5'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">amp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;amp_maxpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_maxpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">amp_maxpool_learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="c1"># avg</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">amp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'amp_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'amp_avgpool_test.h5'</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">amp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;amp_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">amp_avgpool_learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
@@ -1975,7 +1975,7 @@ n_clusters: 10 -- avg silhouette score: 0.14446474611759186
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dna_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'dna_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'dna_avgpool_test.h5'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dna_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;dna_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;dna_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -2011,9 +2011,9 @@ n_clusters: 10 -- avg silhouette score: 0.14446474611759186
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">X_train_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'X_train_pca.shape: </span><span class="si">{</span><span class="n">X_train_pca</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X_train_pca.shape: </span><span class="si">{</span><span class="n">X_train_pca</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">"Explained variance ratio of the first 10 principal components:</span><span class="se">\n</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s2">&quot;Explained variance ratio of the first 10 principal components:</span><span class="se">\n</span><span class="si">{</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -2293,11 +2293,11 @@ Explained variance ratio of the first 10 principal components:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dna_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'dna_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'dna_avgpool_test.h5'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dna_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;dna_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;dna_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">dna_maxpool_learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="c1"># avg</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dna_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">'dna_avgpool_train.h5'</span><span class="p">,</span> <span class="s1">'dna_avgpool_test.h5'</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">dna_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span><span class="s1">&#39;dna_avgpool_train.h5&#39;</span><span class="p">,</span> <span class="s1">&#39;dna_avgpool_test.h5&#39;</span><span class="p">)</span>
 <span class="n">dna_avgpool_learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
@@ -2801,5 +2801,5 @@ n_clusters: 10 -- avg silhouette score: 0.11708684265613556
     {% endraw %}
 
 </div>
-
+ 
 
