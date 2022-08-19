@@ -1399,9 +1399,35 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h3 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L11" class="source_link" style="float:right">[source]</a></h3><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
+<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L11" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
 </blockquote>
-<p>Abstract base class for protein datasets</p>
+
+<pre><code>Abstract base class for protein datasets</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>name</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>location</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>max_seq_len</code></strong></td>
+<td><code>int</code></td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1450,7 +1476,23 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="ProteinDataset.extract_features_labels" class="doc_header"><code>ProteinDataset.extract_features_labels</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.extract_features_labels</code>(<strong><code>df</code></strong>:<code>DataFrame</code>)</p>
 </blockquote>
-<p>Extract features and separate labels</p>
+
+<pre><code>Extract features and separate labels</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>df</code></strong></td>
+<td><code>DataFrame</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1475,7 +1517,28 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="ProteinDataset.generate_fasta_files" class="doc_header"><code>ProteinDataset.generate_fasta_files</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.generate_fasta_files</code>(<strong><code>out_dir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>use_seq_max_len</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
-<p>Generate a fasta files for the given protein dataset.</p>
+
+<pre><code>Generate a fasta files for the given protein dataset.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>out_dir</code></strong></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><strong><code>use_seq_max_len</code></strong></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1500,7 +1563,33 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="ProteinDataset.get_lstm_emb" class="doc_header"><code>ProteinDataset.get_lstm_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L82" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_lstm_emb</code>(<strong><code>train_h5_file</code></strong>:<code>str</code>, <strong><code>test_h5_file</code></strong>:<code>str</code>, <strong><code>h5_location</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
 </blockquote>
-<p>Read ProSE LSTM embeddings from HDF5 files</p>
+
+<pre><code>Read ProSE LSTM embeddings from HDF5 files</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>train_h5_file</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>test_h5_file</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>h5_location</code></strong></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1525,7 +1614,43 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="ProteinDataset.get_transformer_emb" class="doc_header"><code>ProteinDataset.get_transformer_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L113" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_transformer_emb</code>(<strong><code>train_fasta_file</code></strong>:<code>str</code>, <strong><code>test_fasta_file</code></strong>:<code>str</code>, <strong><code>fasta_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_layer</code></strong>:<code>int</code>=<em><code>33</code></em>)</p>
 </blockquote>
-<p>Read ESM Transformer embeddings</p>
+
+<pre><code>Read ESM Transformer embeddings</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>train_fasta_file</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>test_fasta_file</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>fasta_location</code></strong></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><strong><code>emb_location</code></strong></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><strong><code>emb_layer</code></strong></td>
+<td><code>int</code></td>
+<td><code>33</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1557,7 +1682,28 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L158" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
-<p>Anticancer Peptide Dataset</p>
+
+<pre><code>Anticancer Peptide Dataset</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>location</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>max_seq_len</code></strong></td>
+<td><code>int</code></td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1569,31 +1715,13 @@ Test:  50.75%
 </div>
     {% endraw %}
 
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ACPDataset.__init__" class="doc_header"><code>ACPDataset.__init__</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L161" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ACPDataset.__init__</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>)</p>
-</blockquote>
-<p>Load, clean ,extract labels &amp; features for ACP train and test</p>
-
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>__init__()</code> method loads, cleans, extracts labels &amp; features for train and test splits of the datasets.</p>
 
 </div>
 </div>
-
 </div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1607,7 +1735,8 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="ACPDataset.clean_data" class="doc_header"><code>ACPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L169" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ACPDataset.clean_data</code>()</p>
 </blockquote>
-<p>Load, clean and return ACP train and test dataframes</p>
+
+<pre><code>Load, clean and return ACP train and test dataframes</code></pre>
 
 </div>
 
@@ -1639,32 +1768,38 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L181" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
-<p>Antimicrobial Peptide Dataset</p>
 
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="AMPDataset.__init__" class="doc_header"><code>AMPDataset.__init__</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L184" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>AMPDataset.__init__</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>)</p>
-</blockquote>
-<p>Load, clean ,extract labels &amp; features for AMP train and test</p>
+<pre><code>Antimicrobial Peptide Dataset</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>location</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>max_seq_len</code></strong></td>
+<td><code>int</code></td>
+<td><code>150</code></td>
+</tr>
+<tr>
+<td><strong><code>test_pct</code></strong></td>
+<td><code>float</code></td>
+<td><code>0.2</code></td>
+</tr>
+<tr>
+<td><strong><code>seed</code></strong></td>
+<td><code>int</code></td>
+<td><code>1234</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1689,7 +1824,28 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="AMPDataset.clean_data" class="doc_header"><code>AMPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L196" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>AMPDataset.clean_data</code>(<strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>:<code>int</code>=<em><code>1234</code></em>)</p>
 </blockquote>
-<p>Load, clean, split and return AMP train and test dataframes</p>
+
+<pre><code>Load, clean, split and return AMP train and test dataframes</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>test_pct</code></strong></td>
+<td><code>float</code></td>
+<td><code>0.2</code></td>
+</tr>
+<tr>
+<td><strong><code>seed</code></strong></td>
+<td><code>int</code></td>
+<td><code>1234</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1721,32 +1877,28 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L215" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
-<p>DNA Binding Protein Dataset</p>
 
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="DNABindDataset.__init__" class="doc_header"><code>DNABindDataset.__init__</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L218" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>DNABindDataset.__init__</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>)</p>
-</blockquote>
-<p>Load, clean ,extract labels &amp; features for ACP train and test</p>
+<pre><code>DNA Binding Protein Dataset</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>location</code></strong></td>
+<td><code>str</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>max_seq_len</code></strong></td>
+<td><code>int</code></td>
+<td><code>300</code></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -1771,7 +1923,8 @@ Test:  50.75%
 <div class="output_markdown rendered_html output_subarea ">
 <h4 id="DNABindDataset.clean_data" class="doc_header"><code>DNABindDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L226" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>DNABindDataset.clean_data</code>()</p>
 </blockquote>
-<p>Load, clean and return DNABind train and test dataframes</p>
+
+<pre><code>Load, clean and return DNABind train and test dataframes</code></pre>
 
 </div>
 
