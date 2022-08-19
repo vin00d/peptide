@@ -9,7 +9,7 @@ dependencies:
   - matplotlib
   - nbdev<2
   # - numpy<1.22
-  - nvidia::cudatoolkit=11.3
+  # - nvidia::cudatoolkit=11.3
   - pandas
   - pip
   - python=3.9

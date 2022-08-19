@@ -34,9 +34,12 @@ With pip
 
 ## How to use
 
+To develop using nbs ..
+- `pip install -e .`
+
 Fill me in please! Don't forget code examples:
 
-```
+```python
 1+1
 ```
 
@@ -46,3 +49,15 @@ Fill me in please! Don't forget code examples:
     2
 
 
+
+# References
+
+This library is created using the awesome [nbdev v1](https://nbdev1.fast.ai/), soon to be upgraded to [nbdev v2](https://www.fast.ai/2022/07/28/nbdev-v2/).
+
+Pretrained embeddings used in this library are from the following papers
+
+1. LSTM - Protein Sequence Embeddings (**ProSE**) - Multi-task and masked language model-based protein sequence embedding models - [GitHub](https://github.com/tbepler/prose)
+> Bepler, T., Berger, B. Learning the protein language:evolution, structure, and function. Cell Systems 12, 6 (2021). https://doi.org/10.1016/j.cels.2021.05.017> Bepler, T., Berger, B. Learning protein sequence embeddings using information from structure. International Conference on Learning Representations (2019). https://openreview.net/pdf?id=SygLehCqtm
+2. Transformer - Evolutionary Scale Modeling (**ESM**) - [GitHub](https://github.com/facebookresearch/esm)
+> Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences Alexander Rives, Joshua Meier, Tom Sercu, Siddharth Goyal, Zeming Lin, Jason Liu, Demi Guo, Myle Ott, C. Lawrence Zitnick, Jerry Ma, Rob Fergus
+    > bioRxiv 622803; doi:https://doi.org/10.1101/622803
