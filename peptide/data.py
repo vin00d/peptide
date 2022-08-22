@@ -7,23 +7,30 @@ __all__ = ['ProteinDataset', 'ACPDataset', 'AMPDataset', 'DNABindDataset']
 from .basics import *
 from .imports import *
 
+
 # Cell
 class ProteinDataset(ABC):
-    """Abstract base class for protein datasets"""
+    """Abstract base class for protein datasets."""
 
-    def __init__(self, name: str, location: str, max_seq_len: int = None):
+    def __init__(
+        self,
+        name: str,  # name of the dataset (e.g. 'acp' or 'amp' or 'dna')
+        location: str,  # location of the raw dataset
+        max_seq_len: int = None,  # amino acid sequences will be truncated at this max length
+    ):
         self.name = name
         self.location = location
         self.max_seq_len = max_seq_len
 
     @abstractmethod
     def clean_data(self):
+        """Abstract method for cleaning raw data."""
         pass
 
     def extract_features_labels(
-        self, df: pd.DataFrame
+        self, df: pd.DataFrame  # cleaned train or test dataframe
     ) -> tuple[pd.DataFrame, np.ndarray, np.ndarray]:
-        """Extract features and separate labels"""
+        """Extract features and separate labels."""
 
         df["seq_list"] = df["sequence"].apply(lambda x: list(x))
         df["length"] = df["seq_list"].apply(lambda x: len(x))
@@ -40,9 +47,11 @@ class ProteinDataset(ABC):
         return df, features, labels
 
     def generate_fasta_files(
-        self, out_dir: str = None, use_seq_max_len: bool = False
+        self,
+        out_dir: str = None,  # output directory, defaults to 'dataset_location/dataset_name/fasta'
+        use_seq_max_len: bool = False,  # if True, uses truncated amino acid sequences, else full sequence
     ) -> None:
-        """Generate a fasta files for the given protein dataset."""
+        """Generate fasta files (using the BioPython lib) for the given protein dataset."""
 
         ds_name = self.name
         location = (
@@ -80,9 +89,12 @@ class ProteinDataset(ABC):
         return
 
     def get_lstm_emb(
-        self, train_h5_file: str, test_h5_file: str, h5_location: str = None
+        self,
+        train_h5_file: str,  # train h5 filename
+        test_h5_file: str,  # test h5 filename
+        h5_location: str = None,  # LSTM embedding directory - defaults to 'dataset_location/dataset_name/lstm'
     ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-        """Read ProSE LSTM embeddings from HDF5 files"""
+        """Read (ProSE) LSTM embeddings from HDF5 files, returns X_train, y_train, X_test, y_test."""
 
         def _get_emb(h5_file):
             Xs = []
@@ -112,13 +124,13 @@ class ProteinDataset(ABC):
 
     def get_transformer_emb(
         self,
-        train_fasta_file: str,
-        test_fasta_file: str,
-        fasta_location: str = None,
-        emb_location: str = None,
-        emb_layer: int = 33,
+        train_fasta_file: str,  # train fasta filename
+        test_fasta_file: str,  # test fasta filename
+        fasta_location: str = None,  # fasta directory - defaults to 'dataset_location/dataset_name/fasta'
+        emb_location: str = None,  # ESM embedding directory - defaults to 'dataset_location/dataset_name/transformer'
+        emb_layer: int = 33,  # Layer of ESM Transformer to get embedding from - defaults to final layer (33)
     ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-        """Read ESM Transformer embeddings"""
+        """Read (ESM) Transformer embeddings."""
 
         def _get_emb(fasta_file, emb_path, emb_layer):
             ys = []
@@ -156,18 +168,22 @@ class ProteinDataset(ABC):
 
 # Cell
 class ACPDataset(ProteinDataset):
-    """Anticancer Peptide Dataset"""
+    """Class for Anticancer Peptide Dataset."""
 
-    def __init__(self, location: str, max_seq_len: int = None):
-        """Load, clean ,extract labels & features for ACP train and test"""
-        super().__init__('acp', location, max_seq_len)
+    def __init__(
+        self,
+        location: str,  # location of raw ACP dataset (must contain dir called 'acp' with train and test CSVs in it)
+        max_seq_len: int = None,  # max length, if amino acid sequences are to be truncated
+    ):
+        """Load, clean, extract labels & features for ACP train and test"""
+        super().__init__("acp", location, max_seq_len)
 
         train_df, test_df = self.clean_data()
         self.train, self.X_train, self.y_train = self.extract_features_labels(train_df)
         self.test, self.X_test, self.y_test = self.extract_features_labels(test_df)
 
     def clean_data(self) -> tuple[pd.DataFrame, pd.DataFrame]:
-        """Load, clean and return ACP train and test dataframes"""
+        """Implemenation of abstract method - load, clean and return ACP train and test dataframes."""
         acp_train_df = pd.read_csv(f"{self.location}/acp/train_data.csv")
         acp_test_df = pd.read_csv(f"{self.location}/acp/test_data.csv")
 
@@ -179,13 +195,17 @@ class ACPDataset(ProteinDataset):
 
 # Cell
 class AMPDataset(ProteinDataset):
-    """Antimicrobial Peptide Dataset"""
+    """Class for Antimicrobial Peptide Dataset."""
 
     def __init__(
-        self, location: str, max_seq_len: int = 150, test_pct: float = 0.2, seed=1234
+        self,
+        location: str,  # location of raw AMP dataset (must contain dir called 'amp' with 'all_data.csv' in it)
+        max_seq_len: int = 150,  # max length that amino acid sequences will be truncated at
+        test_pct: float = 0.2,  # split percent for test data
+        seed=1234,  # random state for split
     ):
-        """Load, clean ,extract labels & features for AMP train and test"""
-        super().__init__('amp', location, max_seq_len)
+        """Load, clean, extract labels & features for AMP train and test."""
+        super().__init__("amp", location, max_seq_len)
         self.test_pct = test_pct
         self.seed = seed
 
@@ -194,9 +214,11 @@ class AMPDataset(ProteinDataset):
         self.test, self.X_test, self.y_test = self.extract_features_labels(test_df)
 
     def clean_data(
-        self, test_pct: float = 0.2, seed: int = 1234
+        self,
+        test_pct: float = 0.2,  # split percent for test data
+        seed: int = 1234,  # random state for split
     ) -> tuple[pd.DataFrame, pd.DataFrame]:
-        """Load, clean, split and return AMP train and test dataframes"""
+        """Implemenation of abstract method - load, clean, split and return AMP train and test dataframes."""
         amp_df = pd.read_csv(f"{self.location}/amp/all_data.csv")
 
         amp_df.drop(columns=["PDBs_code"], inplace=True)
@@ -213,18 +235,22 @@ class AMPDataset(ProteinDataset):
 
 # Cell
 class DNABindDataset(ProteinDataset):
-    """DNA Binding Protein Dataset"""
+    """Class for DNA Binding Protein Dataset."""
 
-    def __init__(self, location: str, max_seq_len: int = 300):
-        """Load, clean ,extract labels & features for ACP train and test"""
-        super().__init__('dna', location, max_seq_len)
+    def __init__(
+        self,
+        location: str,  # location of raw DNA dataset (must contain dir called 'dna' with train and test CSVs in it)
+        max_seq_len: int = 300  # max length that amino acid sequences will be truncated at
+    ):
+        """Load, clean, extract labels & features for DNA Binding train and test."""
+        super().__init__("dna", location, max_seq_len)
 
         train_df, test_df = self.clean_data()
         self.train, self.X_train, self.y_train = self.extract_features_labels(train_df)
         self.test, self.X_test, self.y_test = self.extract_features_labels(test_df)
 
     def clean_data(self) -> tuple[pd.DataFrame, pd.DataFrame]:
-        """Load, clean and return DNABind train and test dataframes"""
+        """Implemenation of abstract method - load, clean and return DNA Binding train and test dataframes."""
 
         dna_bind_train_df = pd.read_csv(f"{self.location}/dna/train.csv")
         dna_bind_test_df = pd.read_csv(f"{self.location}/dna/test.csv")

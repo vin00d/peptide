@@ -19,15 +19,15 @@ class Learner:
 
     def __init__(
         self,
-        X_train: np.ndarray,
-        y_train: np.ndarray,
-        X_test: np.ndarray,
-        y_test: np.ndarray,
-        ohe: bool = False,
-        scaler: bool = False,
-        pca: bool = True,
-        pca_n_components: int = 50,
-        param_grids: list = None,
+        X_train: np.ndarray,  # X_train numpy ndarray
+        y_train: np.ndarray,  # y_train numpy ndarray
+        X_test: np.ndarray,  # X_test numpy ndarray
+        y_test: np.ndarray,  # y_test numpy ndarray
+        ohe: bool = False,  # to use one hot encoding or not
+        scaler: bool = False,  # to use standard scaling or not
+        pca: bool = True,  # to use principal component analysis or not
+        pca_n_components: int = 50,  # PCA number of components
+        param_grids: list = None,  # param_grid for grid search, if None - gets default grid from utils
     ):
         """Initialize learner for training and prediction."""
         self.classifiers = ["LogisticRegression", "LinearSVC", "XGBClassifier"]
@@ -60,14 +60,12 @@ class Learner:
         return pipe
 
     def train(
-        self, scoring: str = "accuracy", cv: int = 3, n_jobs: int = -1
+        self,
+        scoring: str = "accuracy",  # must be one of https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter
+        cv: int = 5,  # defaults to 5-fold CV
+        n_jobs: int = -1,  #  defaults to -1 to use all cores
     ) -> tuple[list, list]:
         """Run GridSearchCV for all models on X_train and y_train of dataset.
-
-        Args:
-            scoring: https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter
-            cv: defaults to 3-fold cv
-            n_jobs: defaults to -1 to use all cores
         Returns:
             train_results: list of grid search results
             grid_list: list of trained grid objects
@@ -108,7 +106,7 @@ class Learner:
         return results
 
     def predict(self) -> pd.DataFrame:
-        """Get predictions on the datasets X_test from best estimators of GridSearchCV."""
+        """Get predictions on the dataset's X_test from best estimators of GridSearchCV."""
         results = []
         for classifier, grid in zip(self.classifiers, self.grid_list):
             preds = grid.predict(self.X_test)
@@ -139,10 +137,11 @@ class Learner:
 
     def pick_k(
         self,
-        max_clusters: int = 10,
-        pca_n_components: int = 50,
-    ) -> np.ndarray:
-        """Visualize elbow & silhouette plots and print silhouette scores to help determine k for KMeans."""
+        max_clusters: int = 10,  # max number of clusters to try out
+        pca_n_components: int = 50,  # number of components to reduce to in PCA
+    ) -> np.ndarray:  # PCA reduced X
+        """Plot elbow and silohutte curves & print silohutte scores to help determine the ideal 'k' for Kmeans."""
+
 
         # concat X
         X = np.concatenate((self.X_train, self.X_test), axis=0)
@@ -168,9 +167,12 @@ class Learner:
         return X
 
     def analyze_clusters(
-        self, X_pca: np.ndarray, k: int, random_state: int = 10
+        self,
+        X_pca: np.ndarray,  # dim reduced X numpy ndarray
+        k: int,  # the chosen value of k for KMeans
+        random_state: int = 10  # random state for KMeans
     ) -> None:
-        """Analyze and plot clusters identified by KMeans."""
+        """Perform KMeans clustering, print cluster counts and plot clusters from the result."""
 
         km = KMeans(n_clusters=k, random_state=random_state).fit(X_pca)
         print(f"Cluster counts: {Counter(km.labels_)}")
@@ -180,7 +182,7 @@ class Learner:
 
     def run_label_spreading(
         self,
-        pca_n_components: int = 50,
+        pca_n_components: int = 50  # number of components to reduce to in PCA
     ) -> None:
         """Run Lanel Spreading and print classification report."""
 

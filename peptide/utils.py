@@ -63,7 +63,10 @@ def get_default_param_grid() -> list:
 # Cell
 
 
-def visualize_2pcs(pcs, y):
+def visualize_2pcs(
+    pcs: np.ndarray,  # dimensionality reduced 'X' numpy ndarray
+    y: np.ndarray,  # 'y' numpy array
+) -> None:
     """Visualize 2 principal components."""
     fig, ax = plt.subplots(figsize=(10, 5))
     plot = plt.scatter(pcs[:, 0], pcs[:, 1], c=y, marker=".")
@@ -75,7 +78,10 @@ def visualize_2pcs(pcs, y):
 # Cell
 
 
-def visualize_3pcs(pcs, y):
+def visualize_3pcs(
+    pcs: np.ndarray,  # dimensionality reduced 'X' numpy ndarray
+    y: np.ndarray  # 'y' numpy array
+) -> None:
     """Visualize 3 principal components."""
     fig, ax = plt.subplots(figsize=(10, 5))
     ax = fig.add_subplot(projection="3d")
@@ -89,7 +95,12 @@ def visualize_3pcs(pcs, y):
 # Cell
 
 
-def train_predict(X_train, y_train, X_test, y_test):
+def train_predict(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    X_test: np.ndarray,
+    y_test: np.ndarray
+) -> pd.DataFrame:
     """Utility helper function to quickly train and predict"""
 
     lr = LogisticRegression(max_iter=10000)
@@ -124,13 +135,17 @@ def train_predict(X_train, y_train, X_test, y_test):
 # Cell
 
 
-def visualize_elbow(X: np.ndarray, ks: list) -> None:
+def visualize_elbow(
+    X: np.ndarray,  # 'X' numpy ndarray
+    ks: list,  # list of 'k' values to try - ideally 2 to 10
+    random_state: int = 10  # random state for KMeans
+) -> None:
     """Visualize elbow plot for KMeans."""
 
     fig, ax = plt.subplots()
     inertias = []
     for k in ks:
-        kmeans = KMeans(n_clusters=k, random_state=10).fit(X)
+        kmeans = KMeans(n_clusters=k, random_state=random_state).fit(X)
         inertias.append(kmeans.inertia_)
     plt.plot(ks, inertias)
     plt.xticks(ks)
@@ -143,7 +158,9 @@ def visualize_elbow(X: np.ndarray, ks: list) -> None:
 
 
 def plot_silhouette_scores(
-    max_clusters: int, X: np.ndarray, random_state: int = 10
+    max_clusters: int,  # max value for 'k' for KMeans clustering
+    X: np.ndarray,   # the 'X' numpy ndarray
+    random_state: int = 10  # random state for KMeans
 ) -> None:
     """List and plot silhouette scores for KMeans."""
 
@@ -169,8 +186,11 @@ def plot_silhouette_scores(
 # Cell
 
 
-def visualize_clusters(clust_lbls: np.ndarray, X: np.ndarray) -> None:
-    """Visualize clusters in a plot of 2 principal components."""
+def visualize_clusters(
+    clust_lbls: np.ndarray,  # cluster labels after KMeans fitting
+    X: np.ndarray  # dim reduced X used for KMeans
+) -> None:
+    """Visualize clusters in a plot of first 2 principal components."""
 
     X_plot = pd.DataFrame(X[:, :2], columns=["pc1", "pc2"])
     X_plot["cluster_id"] = clust_lbls

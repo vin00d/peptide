@@ -1399,15 +1399,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L11" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
+<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L12" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
 </blockquote>
 
-<pre><code>Abstract base class for protein datasets</code></pre>
+<pre><code>Abstract base class for protein datasets.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1415,16 +1416,19 @@ Test:  50.75%
 <td><strong><code>name</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>name of the dataset (e.g. 'acp' or 'amp' or 'dna')</td>
 </tr>
 <tr>
 <td><strong><code>location</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>location of the raw dataset</td>
 </tr>
 <tr>
 <td><strong><code>max_seq_len</code></strong></td>
 <td><code>int</code></td>
 <td><code>None</code></td>
+<td>amino acid sequences will be truncated at this max length</td>
 </tr>
 </tbody>
 </table>
@@ -1450,8 +1454,10 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.clean_data" class="doc_header"><code>ProteinDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L19" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.clean_data</code>()</p>
+<h4 id="ProteinDataset.clean_data" class="doc_header"><code>ProteinDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L25" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.clean_data</code>()</p>
 </blockquote>
+
+<pre><code>Abstract method for cleaning raw data.</code></pre>
 
 </div>
 
@@ -1474,15 +1480,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.extract_features_labels" class="doc_header"><code>ProteinDataset.extract_features_labels</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.extract_features_labels</code>(<strong><code>df</code></strong>:<code>DataFrame</code>)</p>
+<h4 id="ProteinDataset.extract_features_labels" class="doc_header"><code>ProteinDataset.extract_features_labels</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.extract_features_labels</code>(<strong><code>df</code></strong>:<code>DataFrame</code>)</p>
 </blockquote>
 
-<pre><code>Extract features and separate labels</code></pre>
+<pre><code>Extract features and separate labels.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1490,6 +1497,7 @@ Test:  50.75%
 <td><strong><code>df</code></strong></td>
 <td><code>DataFrame</code></td>
 <td></td>
+<td>cleaned train or test dataframe</td>
 </tr>
 </tbody>
 </table>
@@ -1515,15 +1523,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.generate_fasta_files" class="doc_header"><code>ProteinDataset.generate_fasta_files</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L42" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.generate_fasta_files</code>(<strong><code>out_dir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>use_seq_max_len</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="ProteinDataset.generate_fasta_files" class="doc_header"><code>ProteinDataset.generate_fasta_files</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L49" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.generate_fasta_files</code>(<strong><code>out_dir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>use_seq_max_len</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 
-<pre><code>Generate a fasta files for the given protein dataset.</code></pre>
+<pre><code>Generate fasta files (using the BioPython lib) for the given protein dataset.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1531,11 +1540,13 @@ Test:  50.75%
 <td><strong><code>out_dir</code></strong></td>
 <td><code>str</code></td>
 <td><code>None</code></td>
+<td>output directory, defaults to 'dataset_location/dataset_name/fasta'</td>
 </tr>
 <tr>
 <td><strong><code>use_seq_max_len</code></strong></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
+<td>if True, uses truncated amino acid sequences, else full sequence</td>
 </tr>
 </tbody>
 </table>
@@ -1561,15 +1572,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.get_lstm_emb" class="doc_header"><code>ProteinDataset.get_lstm_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L82" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_lstm_emb</code>(<strong><code>train_h5_file</code></strong>:<code>str</code>, <strong><code>test_h5_file</code></strong>:<code>str</code>, <strong><code>h5_location</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
+<h4 id="ProteinDataset.get_lstm_emb" class="doc_header"><code>ProteinDataset.get_lstm_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_lstm_emb</code>(<strong><code>train_h5_file</code></strong>:<code>str</code>, <strong><code>test_h5_file</code></strong>:<code>str</code>, <strong><code>h5_location</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
 </blockquote>
 
-<pre><code>Read ProSE LSTM embeddings from HDF5 files</code></pre>
+<pre><code>Read (ProSE) LSTM embeddings from HDF5 files, returns X_train, y_train, X_test, y_test.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1577,16 +1589,19 @@ Test:  50.75%
 <td><strong><code>train_h5_file</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>train h5 filename</td>
 </tr>
 <tr>
 <td><strong><code>test_h5_file</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>test h5 filename</td>
 </tr>
 <tr>
 <td><strong><code>h5_location</code></strong></td>
 <td><code>str</code></td>
 <td><code>None</code></td>
+<td>LSTM embedding directory - defaults to 'dataset_location/dataset_name/lstm'</td>
 </tr>
 </tbody>
 </table>
@@ -1612,15 +1627,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.get_transformer_emb" class="doc_header"><code>ProteinDataset.get_transformer_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L113" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_transformer_emb</code>(<strong><code>train_fasta_file</code></strong>:<code>str</code>, <strong><code>test_fasta_file</code></strong>:<code>str</code>, <strong><code>fasta_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_layer</code></strong>:<code>int</code>=<em><code>33</code></em>)</p>
+<h4 id="ProteinDataset.get_transformer_emb" class="doc_header"><code>ProteinDataset.get_transformer_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L125" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_transformer_emb</code>(<strong><code>train_fasta_file</code></strong>:<code>str</code>, <strong><code>test_fasta_file</code></strong>:<code>str</code>, <strong><code>fasta_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_layer</code></strong>:<code>int</code>=<em><code>33</code></em>)</p>
 </blockquote>
 
-<pre><code>Read ESM Transformer embeddings</code></pre>
+<pre><code>Read (ESM) Transformer embeddings.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1628,26 +1644,31 @@ Test:  50.75%
 <td><strong><code>train_fasta_file</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>train fasta filename</td>
 </tr>
 <tr>
 <td><strong><code>test_fasta_file</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>test fasta filename</td>
 </tr>
 <tr>
 <td><strong><code>fasta_location</code></strong></td>
 <td><code>str</code></td>
 <td><code>None</code></td>
+<td>fasta directory - defaults to 'dataset_location/dataset_name/fasta'</td>
 </tr>
 <tr>
 <td><strong><code>emb_location</code></strong></td>
 <td><code>str</code></td>
 <td><code>None</code></td>
+<td>ESM embedding directory - defaults to 'dataset_location/dataset_name/transformer'</td>
 </tr>
 <tr>
 <td><strong><code>emb_layer</code></strong></td>
 <td><code>int</code></td>
 <td><code>33</code></td>
+<td>Layer of ESM Transformer to get embedding from - defaults to final layer (33)</td>
 </tr>
 </tbody>
 </table>
@@ -1680,15 +1701,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L158" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+<h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L170" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
 
-<pre><code>Anticancer Peptide Dataset</code></pre>
+<pre><code>Class for Anticancer Peptide Dataset.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1696,11 +1718,13 @@ Test:  50.75%
 <td><strong><code>location</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>location of raw ACP dataset (must contain dir called 'acp' with train and test CSVs in it)</td>
 </tr>
 <tr>
 <td><strong><code>max_seq_len</code></strong></td>
 <td><code>int</code></td>
 <td><code>None</code></td>
+<td>max length, if amino acid sequences are to be truncated</td>
 </tr>
 </tbody>
 </table>
@@ -1717,7 +1741,11 @@ Test:  50.75%
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>__init__()</code> method loads, cleans, extracts labels &amp; features for train and test splits of the datasets.</p>
+<p>The <code>__init__()</code> method loads, cleans, extracts labels &amp; features for train and test splits of the datasets. It does this by calling the following 2 methods.</p>
+<ul>
+<li><code>clean_data</code> method described below.</li>
+<li><code>extract_features_labels</code> method described in the <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a> abstract class definition above.</li>
+</ul>
 
 </div>
 </div>
@@ -1733,10 +1761,10 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ACPDataset.clean_data" class="doc_header"><code>ACPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L169" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ACPDataset.clean_data</code>()</p>
+<h4 id="ACPDataset.clean_data" class="doc_header"><code>ACPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L185" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ACPDataset.clean_data</code>()</p>
 </blockquote>
 
-<pre><code>Load, clean and return ACP train and test dataframes</code></pre>
+<pre><code>Implemenation of abstract method - load, clean and return ACP train and test dataframes.</code></pre>
 
 </div>
 
@@ -1766,15 +1794,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L181" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+<h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L197" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
 
-<pre><code>Antimicrobial Peptide Dataset</code></pre>
+<pre><code>Class for Antimicrobial Peptide Dataset.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1782,21 +1811,25 @@ Test:  50.75%
 <td><strong><code>location</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>location of raw AMP dataset (must contain dir called 'amp' with 'all_data.csv' in it)</td>
 </tr>
 <tr>
 <td><strong><code>max_seq_len</code></strong></td>
 <td><code>int</code></td>
 <td><code>150</code></td>
+<td>max length that amino acid sequences will be truncated at</td>
 </tr>
 <tr>
 <td><strong><code>test_pct</code></strong></td>
 <td><code>float</code></td>
 <td><code>0.2</code></td>
+<td>split percent for test data</td>
 </tr>
 <tr>
 <td><strong><code>seed</code></strong></td>
 <td><code>int</code></td>
 <td><code>1234</code></td>
+<td>random state for split</td>
 </tr>
 </tbody>
 </table>
@@ -1822,15 +1855,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="AMPDataset.clean_data" class="doc_header"><code>AMPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L196" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>AMPDataset.clean_data</code>(<strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>:<code>int</code>=<em><code>1234</code></em>)</p>
+<h4 id="AMPDataset.clean_data" class="doc_header"><code>AMPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L216" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>AMPDataset.clean_data</code>(<strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>:<code>int</code>=<em><code>1234</code></em>)</p>
 </blockquote>
 
-<pre><code>Load, clean, split and return AMP train and test dataframes</code></pre>
+<pre><code>Implemenation of abstract method - load, clean, split and return AMP train and test dataframes.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1838,11 +1872,13 @@ Test:  50.75%
 <td><strong><code>test_pct</code></strong></td>
 <td><code>float</code></td>
 <td><code>0.2</code></td>
+<td>split percent for test data</td>
 </tr>
 <tr>
 <td><strong><code>seed</code></strong></td>
 <td><code>int</code></td>
 <td><code>1234</code></td>
+<td>random state for split</td>
 </tr>
 </tbody>
 </table>
@@ -1875,15 +1911,16 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L215" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+<h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L237" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
 </blockquote>
 
-<pre><code>DNA Binding Protein Dataset</code></pre>
+<pre><code>Class for DNA Binding Protein Dataset.</code></pre>
 <table>
 <thead><tr>
 <th></th>
 <th>Type</th>
 <th>Default</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -1891,11 +1928,13 @@ Test:  50.75%
 <td><strong><code>location</code></strong></td>
 <td><code>str</code></td>
 <td></td>
+<td>location of raw DNA dataset (must contain dir called 'dna' with train and test CSVs in it)</td>
 </tr>
 <tr>
 <td><strong><code>max_seq_len</code></strong></td>
 <td><code>int</code></td>
 <td><code>300</code></td>
+<td>max length that amino acid sequences will be truncated at</td>
 </tr>
 </tbody>
 </table>
@@ -1921,10 +1960,10 @@ Test:  50.75%
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="DNABindDataset.clean_data" class="doc_header"><code>DNABindDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L226" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>DNABindDataset.clean_data</code>()</p>
+<h4 id="DNABindDataset.clean_data" class="doc_header"><code>DNABindDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L252" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>DNABindDataset.clean_data</code>()</p>
 </blockquote>
 
-<pre><code>Load, clean and return DNABind train and test dataframes</code></pre>
+<pre><code>Implemenation of abstract method - load, clean and return DNA Binding train and test dataframes.</code></pre>
 
 </div>
 
