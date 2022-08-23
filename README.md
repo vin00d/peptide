@@ -39,7 +39,7 @@ To develop using nbs ..
 
 Fill me in please! Don't forget code examples:
 
-```python
+```
 1+1
 ```
 

@@ -80,7 +80,41 @@ nb_path: "nbs/05_transformer.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>ESM has a max sequence length limitation of 1024.</p>
+<h2 id="Pretrained-Model---ESM">Pretrained Model - ESM<a class="anchor-link" href="#Pretrained-Model---ESM"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Details of the pretrained model:</p>
+<p>Evolutionary Scale Modeling (ESM)</p>
+<ul>
+<li>Transformer protein language models.</li>
+<li><a href="https://github.com/facebookresearch/esm">https://github.com/facebookresearch/esm</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="fasta-+-BioPython">fasta + BioPython<a class="anchor-link" href="#fasta-+-BioPython"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Details about generating fasta files using the BioPython library is <a href="/peptide/data.html#ProteinDataset.generate_fasta_files">detailed here in the data module</a>.</li>
+<li>fasta files are created by the <code>generate_fasta_files()</code> method in the dataset classes for example - <code>acp_data.generate_fasta_files()</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ESM has a max sequence length limitation of 1024. So <code>max_seq_len &lt;= 1024</code> must be used when generating fasta files.</p>
 
 </div>
 </div>
@@ -119,25 +153,20 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_1024.fasta with 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="ESM">ESM<a class="anchor-link" href="#ESM"> </a></h2>
+<h3 id="Create-Transformer-Embeddings-From-fasta">Create Transformer Embeddings From fasta<a class="anchor-link" href="#Create-Transformer-Embeddings-From-fasta"> </a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Details of the pretrained model:</p>
-<p>Protein Sequence Embeddings (ProSE)</p>
+<p>In order to cerate embeddings in bulk from fasta files <a href="https://github.com/facebookresearch/esm#compute-embeddings-in-bulk-from-fasta-">details here</a> ..</p>
 <ul>
-<li>Multi-task and masked language model-based protein sequence embedding models.</li>
-<li><a href="https://github.com/tbepler/prose">https://github.com/tbepler/prose</a></li>
+<li>the <a href="https://github.com/facebookresearch/esm">ESM Github repo</a> needs to be cloned</li>
+<li>a conda environment for it needs to be created as detailed in the repo (link above)</li>
+<li>then in that conda environment at the root of the cloned repo, the following commands need to be run</li>
 </ul>
+<p>Sample python commands to generate embeddings from pretrained model in the ESM codebase are as follows:</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Create-embeddings-(in-bulk)-from-fasta">Create embeddings (in bulk) from fasta<a class="anchor-link" href="#Create-embeddings-(in-bulk)-from-fasta"> </a></h3>
 </div>
 </div>
 </div>
@@ -241,41 +270,11 @@ Processing 1 of 289 batches (56 sequences)
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-embeddings">Get embeddings<a class="anchor-link" href="#Get-embeddings"> </a></h3><ul>
-<li>From ESM Example - <a href="https://github.com/facebookresearch/esm/blob/main/examples/sup_variant_prediction.ipynb">https://github.com/facebookresearch/esm/blob/main/examples/sup_variant_prediction.ipynb</a></li>
-</ul>
+<h3 id="Read-Transformer-Embeddings">Read Transformer Embeddings<a class="anchor-link" href="#Read-Transformer-Embeddings"> </a></h3><p>The procedure for reading the embeddings generated from the pretrained ESM model is <a href="peptide/data.html#ProteinDataset.get_transformer_emb">detailed here in the data module</a>.</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_embeddings</span><span class="p">(</span><span class="n">fasta_path</span><span class="p">,</span> <span class="n">emb_path</span><span class="p">,</span> <span class="n">emb_layer</span><span class="p">):</span>
-    <span class="n">ys</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">Xs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">header</span><span class="p">,</span> <span class="n">_seq</span> <span class="ow">in</span> <span class="n">esm</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">read_fasta</span><span class="p">(</span><span class="n">fasta_path</span><span class="p">):</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">))</span>
-        <span class="n">emb_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">emb_path</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="si">}</span><span class="s1">.pt&#39;</span>
-        <span class="n">embs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">emb_file</span><span class="p">)</span>
-        <span class="n">Xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">embs</span><span class="p">[</span><span class="s1">&#39;mean_representations&#39;</span><span class="p">][</span><span class="n">emb_layer</span><span class="p">])</span>
-    <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">ys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">ys</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Anti-Cancer-Peptide-Dataset-(ACP)">Anti Cancer Peptide Dataset (ACP)<a class="anchor-link" href="#Anti-Cancer-Peptide-Dataset-(ACP)"> </a></h2>
