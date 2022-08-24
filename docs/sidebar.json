@@ -1,12 +1,14 @@
 {
-  "peptide": {
+  "Quick Starts": {
     "Overview": "/",
-    "Basics": "basics.html",
-    "Data": "data.html",
-    "Learn": "learn.html",
-    "Onehot Encoding": "onehot.html",
-    "LSTM Embeddings": "lstm.html",
-    "Transformer Embeddings": "transformer.html",
-    "Utils": "utils.html"
+    "Onehot Encoding": "/onehot",
+    "LSTM Embeddings": "/lstm",
+    "Transformer Embeddings": "/transformer"
+  },
+  "Detailed Docs": {
+    "Basics": "/basics",
+    "Data": "/data",
+    "Learn": "/learn",
+    "Utils": "/utils"
   }
 }

@@ -34,12 +34,15 @@ With pip
 
 ## How to use
 
+- git clone this repo
+- create conda env - `conda env create -n peptide -f environment.yml`
+- ` conda activate peptide`
 To develop using nbs ..
 - `pip install -e .`
 
 Fill me in please! Don't forget code examples:
 
-```
+```python
 1+1
 ```
 

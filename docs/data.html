@@ -38,6 +38,8 @@ nb_path: "nbs/01_data.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -89,6 +91,8 @@ nb_path: "nbs/01_data.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">DATA_STORE</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -120,8 +124,10 @@ nb_path: "nbs/01_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -159,8 +165,10 @@ nb_path: "nbs/01_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/acp&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/acp"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -192,9 +200,11 @@ nb_path: "nbs/01_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_acp_train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/acp/train_data.csv&quot;</span><span class="p">)</span>
-<span class="n">raw_acp_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/acp/test_data.csv&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_acp_train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/acp/train_data.csv"</span><span class="p">)</span>
+<span class="n">raw_acp_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/acp/test_data.csv"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -213,6 +223,8 @@ nb_path: "nbs/01_data.ipynb"
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">[</span><span class="n">raw_acp_train_df</span><span class="p">,</span> <span class="n">raw_acp_test_df</span><span class="p">]:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -351,6 +363,8 @@ nb_path: "nbs/01_data.ipynb"
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">[</span><span class="n">raw_acp_train_df</span><span class="p">,</span> <span class="n">raw_acp_test_df</span><span class="p">]:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -470,9 +484,11 @@ nb_path: "nbs/01_data.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train: </span><span class="si">{</span><span class="n">raw_acp_train_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_train_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test: </span><span class="si">{</span><span class="n">raw_acp_test_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_test_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Train: </span><span class="si">{</span><span class="n">raw_acp_train_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_train_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test: </span><span class="si">{</span><span class="n">raw_acp_test_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_test_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -512,6 +528,8 @@ Test:  50.00%
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_test_df</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_train_df</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_acp_test_df</span><span class="p">))</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -560,8 +578,10 @@ Test:  50.00%
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/amp&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/amp"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -593,8 +613,10 @@ Test:  50.00%
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_amp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/amp/all_data.csv&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_amp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/amp/all_data.csv"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -612,6 +634,8 @@ Test:  50.00%
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_amp_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -698,6 +722,8 @@ Test:  50.00%
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_amp_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -770,6 +796,8 @@ Test:  50.00%
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_amp_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_amp_df</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -817,8 +845,10 @@ Test:  50.00%
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/dna&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/dna"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -850,9 +880,11 @@ Test:  50.00%
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_dnab_train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/dna/train.csv&quot;</span><span class="p">)</span>
-<span class="n">raw_dnab_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/dna/test.csv&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw_dnab_train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/dna/train.csv"</span><span class="p">)</span>
+<span class="n">raw_dnab_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DATA_STORE</span><span class="si">}</span><span class="s2">/dna/test.csv"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -871,6 +903,8 @@ Test:  50.00%
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">[</span><span class="n">raw_dnab_train_df</span><span class="p">,</span> <span class="n">raw_dnab_test_df</span><span class="p">]:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -1033,6 +1067,8 @@ Test:  50.00%
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">[</span><span class="n">raw_dnab_train_df</span><span class="p">,</span> <span class="n">raw_dnab_test_df</span><span class="p">]:</span>
     <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -1152,9 +1188,11 @@ Test:  50.00%
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train: </span><span class="si">{</span><span class="n">raw_dnab_train_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_train_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test: </span><span class="si">{</span><span class="n">raw_dnab_test_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_test_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Train: </span><span class="si">{</span><span class="n">raw_dnab_train_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_train_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test: </span><span class="si">{</span><span class="n">raw_dnab_test_df</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_test_df</span><span class="p">)</span> <span class="si">:</span><span class="s2"> .2%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -1194,6 +1232,8 @@ Test:  50.75%
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_test_df</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_train_df</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_dnab_test_df</span><span class="p">))</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -1266,40 +1306,19 @@ Test:  50.75%
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L12" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
-</blockquote>
 
-<pre><code>Abstract base class for protein datasets.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>name</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>name of the dataset (e.g. 'acp' or 'amp' or 'dna')</td>
-</tr>
-<tr>
-<td><strong><code>location</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>location of the raw dataset</td>
-</tr>
-<tr>
-<td><strong><code>max_seq_len</code></strong></td>
-<td><code>int</code></td>
-<td><code>None</code></td>
-<td>amino acid sequences will be truncated at this max length</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ProteinDataset" class="doc_header"><code>class</code> <code>ProteinDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L12" class="source_link" style="float:right">[source]</a></h2>
+<blockquote>
+<p><code>ProteinDataset</code>(<strong><code>name</code></strong>:<code>str</code>, <strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <code>ABC</code></p>
+</blockquote>
+<pre><code>Abstract base class for protein datasets.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>name</code></strong>|<code>str</code>||name of the dataset (e.g. 'acp' or 'amp' or 'dna')|
+|<strong><code>location</code></strong>|<code>str</code>||location of the raw dataset|
+|<strong><code>max_seq_len</code></strong>|<code>int</code>|<code>None</code>|amino acid sequences will be truncated at this max length|</p>
 
 </div>
 
@@ -1340,11 +1359,14 @@ Test:  50.75%
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.clean_data" class="doc_header"><code>ProteinDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L25" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.clean_data</code>()</p>
-</blockquote>
 
-<pre><code>Abstract method for cleaning raw data.</code></pre>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ProteinDataset.clean_data" class="doc_header"><code>ProteinDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L25" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>ProteinDataset.clean_data</code>()</p>
+</blockquote>
+<pre><code>Abstract method for cleaning raw data.
+</code></pre>
 
 </div>
 
@@ -1366,28 +1388,17 @@ Test:  50.75%
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.extract_features_labels" class="doc_header"><code>ProteinDataset.extract_features_labels</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.extract_features_labels</code>(<strong><code>df</code></strong>:<code>DataFrame</code>)</p>
-</blockquote>
 
-<pre><code>Extract features and separate labels.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>df</code></strong></td>
-<td><code>DataFrame</code></td>
-<td></td>
-<td>cleaned train or test dataframe</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ProteinDataset.extract_features_labels" class="doc_header"><code>ProteinDataset.extract_features_labels</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L30" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>ProteinDataset.extract_features_labels</code>(<strong><code>df</code></strong>:<code>DataFrame</code>)</p>
+</blockquote>
+<pre><code>Extract features and separate labels.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>df</code></strong>|<code>DataFrame</code>||cleaned train or test dataframe|</p>
 
 </div>
 
@@ -1409,34 +1420,18 @@ Test:  50.75%
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.generate_fasta_files" class="doc_header"><code>ProteinDataset.generate_fasta_files</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L49" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.generate_fasta_files</code>(<strong><code>out_dir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>use_seq_max_len</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
-</blockquote>
 
-<pre><code>Generate fasta files (using the BioPython lib) for the given protein dataset.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>out_dir</code></strong></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>output directory, defaults to 'dataset_location/dataset_name/fasta'</td>
-</tr>
-<tr>
-<td><strong><code>use_seq_max_len</code></strong></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>if True, uses truncated amino acid sequences, else full sequence</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ProteinDataset.generate_fasta_files" class="doc_header"><code>ProteinDataset.generate_fasta_files</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L49" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>ProteinDataset.generate_fasta_files</code>(<strong><code>out_dir</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>use_seq_max_len</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+</blockquote>
+<pre><code>Generate fasta files (using the BioPython lib) for the given protein dataset.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>out_dir</code></strong>|<code>str</code>|<code>None</code>|output directory, defaults to 'dataset_location/dataset_name/fasta'|
+|<strong><code>use_seq_max_len</code></strong>|<code>bool</code>|<code>False</code>|if True, uses truncated amino acid sequences, else full sequence|</p>
 
 </div>
 
@@ -1452,15 +1447,32 @@ Test:  50.75%
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Both the pretrained models are able to read in amino acid sequences from fasta files in bulk and generate corresponding embeddings. This method is used to generate the fasta files that will be used as input to the pretrained models' bulk APIs. The fasta file generated is of this format:</p>
 
-<pre><code>&gt; 0 |0
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>&gt;0 |0
 FLPLLLSALPSFLCLVFKKC
 &gt;1 |0
 DKLIGSCVWLAVNYTSNCNAECKRRGYKGGHCGSFLNVNCWCET
 &gt;2 |0
-AVKDTYSCFIMRGKCRHECHDFEKPIGFCTKLNANCYM</code></pre>
-<p>For each amino acid sequence in the dataset:- The header is of the form - <code>&gt;index |label</code> on the first line- Followed by the actual AA sequence on the second line</p>
+AVKDTYSCFIMRGKCRHECHDFEKPIGFCTKLNANCYM
+</code></pre>
 
-<pre><code>- If `use_seq_max_len` is set, then the sequence will be truncated at the `max_seq_len` of this dataset object.</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For each amino acid sequence in the dataset:</p>
+<ul>
+<li>The header is of the form - <code>&gt;index |label</code> on the first line</li>
+<li>Followed by the actual AA sequence on the second line<ul>
+<li>If <code>use_seq_max_len</code> is set, then the sequence will be truncated at the <code>max_seq_len</code> of this dataset object.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -1487,13 +1499,15 @@ AVKDTYSCFIMRGKCRHECHDFEKPIGFCTKLNANCYM</code></pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">record</span> <span class="o">=</span> <span class="n">SeqRecord</span><span class="p">(</span>
-    <span class="n">Seq</span><span class="p">(</span><span class="s2">&quot;MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF&quot;</span><span class="p">),</span>
-    <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;YP_025292.1&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;HokC&quot;</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;toxic membrane protein, small&quot;</span><span class="p">,</span>
+    <span class="n">Seq</span><span class="p">(</span><span class="s2">"MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF"</span><span class="p">),</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s2">"YP_025292.1"</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"HokC"</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"toxic membrane protein, small"</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;fasta&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'fasta'</span><span class="p">))</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -1534,6 +1548,8 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">record</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -1575,40 +1591,19 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.get_lstm_emb" class="doc_header"><code>ProteinDataset.get_lstm_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_lstm_emb</code>(<strong><code>train_h5_file</code></strong>:<code>str</code>, <strong><code>test_h5_file</code></strong>:<code>str</code>, <strong><code>h5_location</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
-</blockquote>
 
-<pre><code>Read (ProSE) LSTM embeddings from HDF5 files, returns X_train, y_train, X_test, y_test.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>train_h5_file</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>train h5 filename</td>
-</tr>
-<tr>
-<td><strong><code>test_h5_file</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>test h5 filename</td>
-</tr>
-<tr>
-<td><strong><code>h5_location</code></strong></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>LSTM embedding directory - defaults to 'dataset_location/dataset_name/lstm'</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ProteinDataset.get_lstm_emb" class="doc_header"><code>ProteinDataset.get_lstm_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L91" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>ProteinDataset.get_lstm_emb</code>(<strong><code>train_h5_file</code></strong>:<code>str</code>, <strong><code>test_h5_file</code></strong>:<code>str</code>, <strong><code>h5_location</code></strong>:<code>str</code>=<em><code>None</code></em>)</p>
+</blockquote>
+<pre><code>Read (ProSE) LSTM embeddings from HDF5 files, returns X_train, y_train, X_test, y_test.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>train_h5_file</code></strong>|<code>str</code>||train h5 filename|
+|<strong><code>test_h5_file</code></strong>|<code>str</code>||test h5 filename|
+|<strong><code>h5_location</code></strong>|<code>str</code>|<code>None</code>|LSTM embedding directory - defaults to 'dataset_location/dataset_name/lstm'|</p>
 
 </div>
 
@@ -1664,52 +1659,21 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ProteinDataset.get_transformer_emb" class="doc_header"><code>ProteinDataset.get_transformer_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L125" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ProteinDataset.get_transformer_emb</code>(<strong><code>train_fasta_file</code></strong>:<code>str</code>, <strong><code>test_fasta_file</code></strong>:<code>str</code>, <strong><code>fasta_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_layer</code></strong>:<code>int</code>=<em><code>33</code></em>)</p>
-</blockquote>
 
-<pre><code>Read (ESM) Transformer embeddings.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>train_fasta_file</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>train fasta filename</td>
-</tr>
-<tr>
-<td><strong><code>test_fasta_file</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>test fasta filename</td>
-</tr>
-<tr>
-<td><strong><code>fasta_location</code></strong></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>fasta directory - defaults to 'dataset_location/dataset_name/fasta'</td>
-</tr>
-<tr>
-<td><strong><code>emb_location</code></strong></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>ESM embedding directory - defaults to 'dataset_location/dataset_name/transformer'</td>
-</tr>
-<tr>
-<td><strong><code>emb_layer</code></strong></td>
-<td><code>int</code></td>
-<td><code>33</code></td>
-<td>Layer of ESM Transformer to get embedding from - defaults to final layer (33)</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ProteinDataset.get_transformer_emb" class="doc_header"><code>ProteinDataset.get_transformer_emb</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L125" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>ProteinDataset.get_transformer_emb</code>(<strong><code>train_fasta_file</code></strong>:<code>str</code>, <strong><code>test_fasta_file</code></strong>:<code>str</code>, <strong><code>fasta_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_location</code></strong>:<code>str</code>=<em><code>None</code></em>, <strong><code>emb_layer</code></strong>:<code>int</code>=<em><code>33</code></em>)</p>
+</blockquote>
+<pre><code>Read (ESM) Transformer embeddings.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>train_fasta_file</code></strong>|<code>str</code>||train fasta filename|
+|<strong><code>test_fasta_file</code></strong>|<code>str</code>||test fasta filename|
+|<strong><code>fasta_location</code></strong>|<code>str</code>|<code>None</code>|fasta directory - defaults to 'dataset_location/dataset_name/fasta'|
+|<strong><code>emb_location</code></strong>|<code>str</code>|<code>None</code>|ESM embedding directory - defaults to 'dataset_location/dataset_name/transformer'|
+|<strong><code>emb_layer</code></strong>|<code>int</code>|<code>33</code>|Layer of ESM Transformer to get embedding from - defaults to final layer (33)|</p>
 
 </div>
 
@@ -1774,34 +1738,18 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L170" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
-</blockquote>
 
-<pre><code>Class for Anticancer Peptide Dataset.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>location</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>location of raw ACP dataset (must contain dir called 'acp' with train and test CSVs in it)</td>
-</tr>
-<tr>
-<td><strong><code>max_seq_len</code></strong></td>
-<td><code>int</code></td>
-<td><code>None</code></td>
-<td>max length, if amino acid sequences are to be truncated</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="ACPDataset" class="doc_header"><code>class</code> <code>ACPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L170" class="source_link" style="float:right">[source]</a></h2>
+<blockquote>
+<p><code>ACPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>None</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+</blockquote>
+<pre><code>Class for Anticancer Peptide Dataset.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>location</code></strong>|<code>str</code>||location of raw ACP dataset (must contain dir called 'acp' with train and test CSVs in it)|
+|<strong><code>max_seq_len</code></strong>|<code>int</code>|<code>None</code>|max length, if amino acid sequences are to be truncated|</p>
 
 </div>
 
@@ -1841,11 +1789,14 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="ACPDataset.clean_data" class="doc_header"><code>ACPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L185" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ACPDataset.clean_data</code>()</p>
-</blockquote>
 
-<pre><code>Implemenation of abstract method - load, clean and return ACP train and test dataframes.</code></pre>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="ACPDataset.clean_data" class="doc_header"><code>ACPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L185" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>ACPDataset.clean_data</code>()</p>
+</blockquote>
+<pre><code>Implemenation of abstract method - load, clean and return ACP train and test dataframes.
+</code></pre>
 
 </div>
 
@@ -1874,46 +1825,20 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L197" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
-</blockquote>
 
-<pre><code>Class for Antimicrobial Peptide Dataset.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>location</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>location of raw AMP dataset (must contain dir called 'amp' with 'all_data.csv' in it)</td>
-</tr>
-<tr>
-<td><strong><code>max_seq_len</code></strong></td>
-<td><code>int</code></td>
-<td><code>150</code></td>
-<td>max length that amino acid sequences will be truncated at</td>
-</tr>
-<tr>
-<td><strong><code>test_pct</code></strong></td>
-<td><code>float</code></td>
-<td><code>0.2</code></td>
-<td>split percent for test data</td>
-</tr>
-<tr>
-<td><strong><code>seed</code></strong></td>
-<td><code>int</code></td>
-<td><code>1234</code></td>
-<td>random state for split</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="AMPDataset" class="doc_header"><code>class</code> <code>AMPDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L197" class="source_link" style="float:right">[source]</a></h2>
+<blockquote>
+<p><code>AMPDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>150</code></em>, <strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>=<em><code>1234</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+</blockquote>
+<pre><code>Class for Antimicrobial Peptide Dataset.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>location</code></strong>|<code>str</code>||location of raw AMP dataset (must contain dir called 'amp' with 'all_data.csv' in it)|
+|<strong><code>max_seq_len</code></strong>|<code>int</code>|<code>150</code>|max length that amino acid sequences will be truncated at|
+|<strong><code>test_pct</code></strong>|<code>float</code>|<code>0.2</code>|split percent for test data|
+|<strong><code>seed</code></strong>|<code>int</code>|<code>1234</code>|random state for split|</p>
 
 </div>
 
@@ -1945,34 +1870,18 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="AMPDataset.clean_data" class="doc_header"><code>AMPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L216" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>AMPDataset.clean_data</code>(<strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>:<code>int</code>=<em><code>1234</code></em>)</p>
-</blockquote>
 
-<pre><code>Implemenation of abstract method - load, clean, split and return AMP train and test dataframes.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>test_pct</code></strong></td>
-<td><code>float</code></td>
-<td><code>0.2</code></td>
-<td>split percent for test data</td>
-</tr>
-<tr>
-<td><strong><code>seed</code></strong></td>
-<td><code>int</code></td>
-<td><code>1234</code></td>
-<td>random state for split</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="AMPDataset.clean_data" class="doc_header"><code>AMPDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L216" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>AMPDataset.clean_data</code>(<strong><code>test_pct</code></strong>:<code>float</code>=<em><code>0.2</code></em>, <strong><code>seed</code></strong>:<code>int</code>=<em><code>1234</code></em>)</p>
+</blockquote>
+<pre><code>Implemenation of abstract method - load, clean, split and return AMP train and test dataframes.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>test_pct</code></strong>|<code>float</code>|<code>0.2</code>|split percent for test data|
+|<strong><code>seed</code></strong>|<code>int</code>|<code>1234</code>|random state for split|</p>
 
 </div>
 
@@ -2001,34 +1910,18 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L237" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
-</blockquote>
 
-<pre><code>Class for DNA Binding Protein Dataset.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-<th>Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>location</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-<td>location of raw DNA dataset (must contain dir called 'dna' with train and test CSVs in it)</td>
-</tr>
-<tr>
-<td><strong><code>max_seq_len</code></strong></td>
-<td><code>int</code></td>
-<td><code>300</code></td>
-<td>max length that amino acid sequences will be truncated at</td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h2 id="DNABindDataset" class="doc_header"><code>class</code> <code>DNABindDataset</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L237" class="source_link" style="float:right">[source]</a></h2>
+<blockquote>
+<p><code>DNABindDataset</code>(<strong><code>location</code></strong>:<code>str</code>, <strong><code>max_seq_len</code></strong>:<code>int</code>=<em><code>300</code></em>) :: <a href="/peptide/data.html#ProteinDataset"><code>ProteinDataset</code></a></p>
+</blockquote>
+<pre><code>Class for DNA Binding Protein Dataset.
+</code></pre>
+<p>||Type|Default|Details|
+|---|---|---|---|
+|<strong><code>location</code></strong>|<code>str</code>||location of raw DNA dataset (must contain dir called 'dna' with train and test CSVs in it)|
+|<strong><code>max_seq_len</code></strong>|<code>int</code>|<code>300</code>|max length that amino acid sequences will be truncated at|</p>
 
 </div>
 
@@ -2057,11 +1950,14 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="DNABindDataset.clean_data" class="doc_header"><code>DNABindDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L252" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>DNABindDataset.clean_data</code>()</p>
-</blockquote>
 
-<pre><code>Implemenation of abstract method - load, clean and return DNA Binding train and test dataframes.</code></pre>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="DNABindDataset.clean_data" class="doc_header"><code>DNABindDataset.clean_data</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L252" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>DNABindDataset.clean_data</code>()</p>
+</blockquote>
+<pre><code>Implemenation of abstract method - load, clean and return DNA Binding train and test dataframes.
+</code></pre>
 
 </div>
 
@@ -2091,6 +1987,8 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <span class="n">amp_data</span> <span class="o">=</span> <span class="n">AMPDataset</span><span class="p">(</span><span class="n">DATA_STORE</span><span class="p">)</span>
 <span class="n">dna_data</span> <span class="o">=</span> <span class="n">DNABindDataset</span><span class="p">(</span><span class="n">DATA_STORE</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2108,6 +2006,8 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dna_data</span><span class="o">.</span><span class="n">test</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2231,6 +2131,8 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">acp_data</span><span class="o">.</span><span class="n">X_train</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2291,41 +2193,20 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_seqlen_dist" class="doc_header"><code>plot_seqlen_dist</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L267" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_seqlen_dist</code>(<strong><code>df</code></strong>:<code>DataFrame</code>, <strong><code>dataset_name</code></strong>:<code>str</code>, <strong><code>log_scale</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>bins</code></strong>:<code>int</code>=<em><code>75</code></em>)</p>
-</blockquote>
 
-<pre><code>Plot the sequence length distribution given a train df with length and label columns.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>df</code></strong></td>
-<td><code>DataFrame</code></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><code>dataset_name</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><code>log_scale</code></strong></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><strong><code>bins</code></strong></td>
-<td><code>int</code></td>
-<td><code>75</code></td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="plot_seqlen_dist" class="doc_header"><code>plot_seqlen_dist</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L267" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>plot_seqlen_dist</code>(<strong><code>df</code></strong>:<code>DataFrame</code>, <strong><code>dataset_name</code></strong>:<code>str</code>, <strong><code>log_scale</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>bins</code></strong>:<code>int</code>=<em><code>75</code></em>)</p>
+</blockquote>
+<pre><code>Plot the sequence length distribution given a train df with length and label columns.
+</code></pre>
+<p>||Type|Default|
+|---|---|---|
+|<strong><code>df</code></strong>|<code>DataFrame</code>||
+|<strong><code>dataset_name</code></strong>|<code>str</code>||
+|<strong><code>log_scale</code></strong>|<code>bool</code>|<code>False</code>|
+|<strong><code>bins</code></strong>|<code>int</code>|<code>75</code>|</p>
 
 </div>
 
@@ -2354,31 +2235,18 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_AA_dist" class="doc_header"><code>plot_AA_dist</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L313" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_AA_dist</code>(<strong><code>df</code></strong>:<code>DataFrame</code>, <strong><code>dataset_name</code></strong>:<code>str</code>)</p>
-</blockquote>
 
-<pre><code>Plot the distribution of amino acids given a train df with "sequence" column.</code></pre>
-<table>
-<thead><tr>
-<th></th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><code>df</code></strong></td>
-<td><code>DataFrame</code></td>
-<td></td>
-</tr>
-<tr>
-<td><strong><code>dataset_name</code></strong></td>
-<td><code>str</code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="plot_AA_dist" class="doc_header"><code>plot_AA_dist</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/data.py#L313" class="source_link" style="float:right">[source]</a></h4>
+<blockquote>
+<p><code>plot_AA_dist</code>(<strong><code>df</code></strong>:<code>DataFrame</code>, <strong><code>dataset_name</code></strong>:<code>str</code>)</p>
+</blockquote>
+<pre><code>Plot the distribution of amino acids given a train df with &quot;sequence&quot; column.
+</code></pre>
+<p>||Type|Default|
+|---|---|---|
+|<strong><code>df</code></strong>|<code>DataFrame</code>||
+|<strong><code>dataset_name</code></strong>|<code>str</code>||</p>
 
 </div>
 
@@ -2403,8 +2271,10 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Samples in train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acp_data</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Samples in train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">acp_data</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2434,8 +2304,10 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_seqlen_dist</span><span class="p">(</span><span class="n">acp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]],</span> <span class="s2">&quot;Anti Cancer Peptide&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_seqlen_dist</span><span class="p">(</span><span class="n">acp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"length"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">]],</span> <span class="s2">"Anti Cancer Peptide"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2468,8 +2340,10 @@ MKQHKAMIVALIVICITAVVAALVTRKDLCEVHIRTGQTEVAVF
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_AA_dist</span><span class="p">(</span><span class="n">acp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;sequence&quot;</span><span class="p">]],</span> <span class="s2">&quot;Anti Cancer Peptide&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_AA_dist</span><span class="p">(</span><span class="n">acp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"sequence"</span><span class="p">]],</span> <span class="s2">"Anti Cancer Peptide"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2517,8 +2391,10 @@ Frequencies: [(&#39;K&#39;, 4141), (&#39;L&#39;, 3397), (&#39;G&#39;, 3153), (&#
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Samples in train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Samples in train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2549,9 +2425,11 @@ Frequencies: [(&#39;K&#39;, 4141), (&#39;L&#39;, 3397), (&#39;G&#39;, 3153), (&#
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_seqlen_dist</span><span class="p">(</span>
-    <span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]],</span> <span class="s2">&quot;Antimicrobial Peptide&quot;</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"length"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">]],</span> <span class="s2">"Antimicrobial Peptide"</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2585,9 +2463,11 @@ Frequencies: [(&#39;K&#39;, 4141), (&#39;L&#39;, 3397), (&#39;G&#39;, 3153), (&#
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_seqlen_dist</span><span class="p">(</span>
-    <span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]],</span> <span class="s2">&quot;Antimicrobial Peptide&quot;</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"length"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">]],</span> <span class="s2">"Antimicrobial Peptide"</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2620,8 +2500,10 @@ Frequencies: [(&#39;K&#39;, 4141), (&#39;L&#39;, 3397), (&#39;G&#39;, 3153), (&#
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_AA_dist</span><span class="p">(</span><span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;sequence&quot;</span><span class="p">]],</span> <span class="s2">&quot;Antimicrobial Peptide&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_AA_dist</span><span class="p">(</span><span class="n">amp_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"sequence"</span><span class="p">]],</span> <span class="s2">"Antimicrobial Peptide"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2669,8 +2551,10 @@ Frequencies: [(&#39;L&#39;, 9768), (&#39;G&#39;, 9521), (&#39;K&#39;, 8835), (&#
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Samples in train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Samples in train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2701,11 +2585,13 @@ Frequencies: [(&#39;L&#39;, 9768), (&#39;G&#39;, 9521), (&#39;K&#39;, 8835), (&#
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_seqlen_dist</span><span class="p">(</span>
-    <span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]],</span>
-    <span class="s2">&quot;DNA Binding Protein&quot;</span><span class="p">,</span>
+    <span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"length"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">]],</span>
+    <span class="s2">"DNA Binding Protein"</span><span class="p">,</span>
     <span class="n">log_scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2739,11 +2625,13 @@ Frequencies: [(&#39;L&#39;, 9768), (&#39;G&#39;, 9521), (&#39;K&#39;, 8835), (&#
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_seqlen_dist</span><span class="p">(</span>
-    <span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]],</span>
-    <span class="s2">&quot;DNA Binding Protein&quot;</span><span class="p">,</span>
+    <span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"length"</span><span class="p">,</span> <span class="s2">"label"</span><span class="p">]],</span>
+    <span class="s2">"DNA Binding Protein"</span><span class="p">,</span>
     <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2776,8 +2664,10 @@ Frequencies: [(&#39;L&#39;, 9768), (&#39;G&#39;, 9521), (&#39;K&#39;, 8835), (&#
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_AA_dist</span><span class="p">(</span><span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">&quot;sequence&quot;</span><span class="p">]],</span> <span class="s2">&quot;DNA Binding Protein&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_AA_dist</span><span class="p">(</span><span class="n">dna_data</span><span class="o">.</span><span class="n">train</span><span class="p">[[</span><span class="s2">"sequence"</span><span class="p">]],</span> <span class="s2">"DNA Binding Protein"</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2834,6 +2724,8 @@ Frequencies: [(&#39;L&#39;, 550524), (&#39;S&#39;, 472593), (&#39;A&#39;, 457288
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">acp_data</span><span class="o">.</span><span class="n">generate_fasta_files</span><span class="p">()</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2866,6 +2758,8 @@ Created /home/vinod/.peptide/datasets/acp/fasta/acp_test.fasta with 344 sequence
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">amp_data</span><span class="o">.</span><span class="n">generate_fasta_files</span><span class="p">()</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2898,6 +2792,8 @@ Created /home/vinod/.peptide/datasets/amp/fasta/amp_test.fasta with 808 sequence
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">amp_data</span><span class="o">.</span><span class="n">generate_fasta_files</span><span class="p">(</span><span class="n">use_seq_max_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2930,6 +2826,8 @@ Created /home/vinod/.peptide/datasets/amp/fasta/amp_test_seqlen_150.fasta with 8
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dna_data</span><span class="o">.</span><span class="n">generate_fasta_files</span><span class="p">()</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2962,6 +2860,8 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test.fasta with 2272 sequenc
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dna_data</span><span class="o">.</span><span class="n">generate_fasta_files</span><span class="p">(</span><span class="n">use_seq_max_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -2995,7 +2895,7 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_300.fasta with 2
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Steps for generating LSTM embeddings in bulk from fasta files <a href="/peptide/lstm.html#Create-LSTM-Embeddings-From-fasta">detailed here</a>.</li>
-<li>Steps for generating Transformer embeddings in bulk from fasta files <a href="/peptide/transformer.html#Create-Transformer-Embeddings-From-fasta">detailed here</a> </li>
+<li>Steps for generating Transformer embeddings in bulk from fasta files <a href="/peptide/transformer.html#Create-Transformer-Embeddings-From-fasta">detailed here</a>.</li>
 </ul>
 
 </div>
@@ -3022,9 +2922,11 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_300.fasta with 2
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_lstm_emb</span><span class="p">(</span>
-    <span class="s2">&quot;acp_avgpool_train.h5&quot;</span><span class="p">,</span> <span class="s2">&quot;acp_avgpool_test.h5&quot;</span>
+    <span class="s2">"acp_avgpool_train.h5"</span><span class="p">,</span> <span class="s2">"acp_avgpool_test.h5"</span>
 <span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -3042,6 +2944,8 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_300.fasta with 2
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -3081,9 +2985,11 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_300.fasta with 2
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">acp_data</span><span class="o">.</span><span class="n">get_transformer_emb</span><span class="p">(</span>
-    <span class="s2">&quot;acp_train.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;acp_test.fasta&quot;</span>
+    <span class="s2">"acp_train.fasta"</span><span class="p">,</span> <span class="s2">"acp_test.fasta"</span>
 <span class="p">)</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -3101,6 +3007,8 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_300.fasta with 2
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
+</body></html>
+
 
     </div>
 </div>
@@ -3126,5 +3034,5 @@ Created /home/vinod/.peptide/datasets/dna/fasta/dna_test_seqlen_300.fasta with 2
     {% endraw %}
 
 </div>
- 
+
 

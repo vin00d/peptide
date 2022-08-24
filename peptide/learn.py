@@ -41,7 +41,15 @@ class Learner:
         )
 
         self.grid_list, self.train_results = [], []
-        self.predict_results = None
+        pred_cols = [
+            "best_params",
+            "accuracy",
+            "recall",
+            "precision",
+            "f1",
+        ]
+        pred_index = [*self.classifiers, "LabelSpreading"]
+        self.predict_results = pd.DataFrame(index=pred_index, columns=pred_cols)
 
     def create_pipeline(self) -> Pipeline:
         """Create and return pipeline"""
@@ -107,30 +115,19 @@ class Learner:
 
     def predict(self) -> pd.DataFrame:
         """Get predictions on the dataset's X_test from best estimators of GridSearchCV."""
-        results = []
+        # results = []
         for classifier, grid in zip(self.classifiers, self.grid_list):
             preds = grid.predict(self.X_test)
             result = [
-                classifier,
+                # classifier,
                 grid.best_params_,
                 accuracy_score(self.y_test, preds),
                 recall_score(self.y_test, preds),
                 precision_score(self.y_test, preds),
                 f1_score(self.y_test, preds),
             ]
-            results.append(result)
+            self.predict_results.loc[classifier, :] = result
 
-        self.predict_results = pd.DataFrame(
-            results,
-            columns=[
-                "classifier",
-                "best_params",
-                "accuracy",
-                "recall",
-                "precision",
-                "f1",
-            ],
-        )
         return self.predict_results
 
     ## Unsupervised Learning ##
@@ -141,7 +138,6 @@ class Learner:
         pca_n_components: int = 50,  # number of components to reduce to in PCA
     ) -> np.ndarray:  # PCA reduced X
         """Plot elbow and silohutte curves & print silohutte scores to help determine the ideal 'k' for Kmeans."""
-
 
         # concat X
         X = np.concatenate((self.X_train, self.X_test), axis=0)
@@ -170,7 +166,7 @@ class Learner:
         self,
         X_pca: np.ndarray,  # dim reduced X numpy ndarray
         k: int,  # the chosen value of k for KMeans
-        random_state: int = 10  # random state for KMeans
+        random_state: int = 10,  # random state for KMeans
     ) -> None:
         """Perform KMeans clustering, print cluster counts and plot clusters from the result."""
 
@@ -181,10 +177,9 @@ class Learner:
     ## Semi Supervised Learning ##
 
     def run_label_spreading(
-        self,
-        pca_n_components: int = 50  # number of components to reduce to in PCA
+        self, pca_n_components: int = 50  # number of components to reduce to in PCA
     ) -> None:
-        """Run Lanel Spreading and print classification report."""
+        """Run Label Spreading, print report, append results to predict_results."""
 
         # concat X
         X = np.concatenate((self.X_train, self.X_test), axis=0)
@@ -214,3 +209,12 @@ class Learner:
 
         # print result
         print(classification_report(self.y_test, semi_sup_preds))
+
+        result = [
+            lbl_spread.get_params(),
+            accuracy_score(self.y_test, semi_sup_preds),
+            recall_score(self.y_test, semi_sup_preds),
+            precision_score(self.y_test, semi_sup_preds),
+            f1_score(self.y_test, semi_sup_preds),
+        ]
+        self.predict_results.loc["LabelSpreading", :] = result

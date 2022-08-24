@@ -10,27 +10,30 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Basics
-      url: basics.html
-    - output: web,pdf
-      title: Data
-      url: data.html
-    - output: web,pdf
-      title: Learn
-      url: learn.html
-    - output: web,pdf
       title: Onehot Encoding
-      url: onehot.html
+      url: /onehot
     - output: web,pdf
       title: LSTM Embeddings
-      url: lstm.html
+      url: /lstm
     - output: web,pdf
       title: Transformer Embeddings
-      url: transformer.html
+      url: /transformer
+    output: web
+    title: Quick Starts
+  - folderitems:
+    - output: web,pdf
+      title: Basics
+      url: /basics
+    - output: web,pdf
+      title: Data
+      url: /data
+    - output: web,pdf
+      title: Learn
+      url: /learn
     - output: web,pdf
       title: Utils
-      url: utils.html
+      url: /utils
     output: web
-    title: peptide
+    title: Detailed Docs
   output: web
   title: Sidebar
