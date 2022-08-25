@@ -1,5 +1,5 @@
 # peptide
-> An open source library for peptide classification using Machine Learning and Deep Learning.
+> An ML library for peptide classification using pre-trained embeddings.
 
 
 This project aims to build a series of classifiers that can predict whether a given amino acid sequence is one or more of the 3 target peptides.<br>
@@ -26,32 +26,34 @@ Additionally, this project will compare models built with vastly different appro
 
 ## Install
 
-With conda
-- `conda install -c conda-forge peptide`
+### peptide
+1. Git clone the repo.
+    - https://github.com/vin00d/peptide.git
+2. Create a new conda env using the environment.yml file.
+    - `cd peptide`
+    - `conda env create -n peptide -f environment.yml`
+3. To try things out, install this library in editable mode.
+    - `pip install -e .`
 
-With pip
-- `pip install peptide`
+### ProSE
+To create LSTM embeddings ..
+1. Clone the ProSE repo
+    - https://github.com/tbepler/prose.git
+2. Then complete setup instructions for ProSE [detailed on their repo](https://github.com/tbepler/prose#setup-instructions), also summarized below.
+    - Download pre-trained embedding models.
+    - Create conda env and install dependencies.
+
+### ESM
+To create Transformer embeddings ..
+1. Clone the ESM repo
+    - https://github.com/facebookresearch/esm.git
+2. Install ESM and its dependesncies [detailed on their repo](https://github.com/facebookresearch/esm#usage-), one option summarized below.
+    - Create new conda env with python 3.9
+    - In that conda env pip install `torch` and `fair-esm==0.5.0`
 
 ## How to use
 
-- git clone this repo
-- create conda env - `conda env create -n peptide -f environment.yml`
-- ` conda activate peptide`
-To develop using nbs ..
-- `pip install -e .`
-
-Fill me in please! Don't forget code examples:
-
-```python
-1+1
-```
-
-
-
-
-    2
-
-
+1. Read through the quick start guides and run cell by cell
 
 # References
 

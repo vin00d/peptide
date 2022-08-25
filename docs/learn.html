@@ -38,8 +38,6 @@ nb_path: "nbs/02_learn.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
-</body></html>
-
 
     </div>
 </div>
@@ -72,25 +70,76 @@ nb_path: "nbs/02_learn.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Learner" class="doc_header"><code>class</code> <code>Learner</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L17" class="source_link" style="float:right">[source]</a></h2>
-<blockquote>
-<p><code>Learner</code>(<strong><code>X_train</code></strong>:<code>ndarray</code>, <strong><code>y_train</code></strong>:<code>ndarray</code>, <strong><code>X_test</code></strong>:<code>ndarray</code>, <strong><code>y_test</code></strong>:<code>ndarray</code>, <strong><code>ohe</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>scaler</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>pca</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>pca_n_components</code></strong>:<code>int</code>=<em><code>50</code></em>, <strong><code>param_grids</code></strong>:<code>list</code>=<em><code>None</code></em>)</p>
+<h2 id="Learner" class="doc_header"><code>class</code> <code>Learner</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L17" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Learner</code>(<strong><code>X_train</code></strong>:<code>ndarray</code>, <strong><code>y_train</code></strong>:<code>ndarray</code>, <strong><code>X_test</code></strong>:<code>ndarray</code>, <strong><code>y_test</code></strong>:<code>ndarray</code>, <strong><code>ohe</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>scaler</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>pca</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>pca_n_components</code></strong>:<code>int</code>=<em><code>50</code></em>, <strong><code>param_grids</code></strong>:<code>list</code>=<em><code>None</code></em>)</p>
 </blockquote>
-<pre><code>Class for training and prediction.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>X_train</code></strong>|<code>ndarray</code>||X_train numpy ndarray|
-|<strong><code>y_train</code></strong>|<code>ndarray</code>||y_train numpy ndarray|
-|<strong><code>X_test</code></strong>|<code>ndarray</code>||X_test numpy ndarray|
-|<strong><code>y_test</code></strong>|<code>ndarray</code>||y_test numpy ndarray|
-|<strong><code>ohe</code></strong>|<code>bool</code>|<code>False</code>|to use one hot encoding or not|
-|<strong><code>scaler</code></strong>|<code>bool</code>|<code>False</code>|to use standard scaling or not|
-|<strong><code>pca</code></strong>|<code>bool</code>|<code>True</code>|to use principal component analysis or not|
-|<strong><code>pca_n_components</code></strong>|<code>int</code>|<code>50</code>|PCA number of components|
-|<strong><code>param_grids</code></strong>|<code>list</code>|<code>None</code>|param_grid for grid search, if None - gets default grid from utils|</p>
+
+<pre><code>Class for training and prediction.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>X_train</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>X_train numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>y_train</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>y_train numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>X_test</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>X_test numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>y_test</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>y_test numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>ohe</code></strong></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>to use one hot encoding or not</td>
+</tr>
+<tr>
+<td><strong><code>scaler</code></strong></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>to use standard scaling or not</td>
+</tr>
+<tr>
+<td><strong><code>pca</code></strong></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>to use principal component analysis or not</td>
+</tr>
+<tr>
+<td><strong><code>pca_n_components</code></strong></td>
+<td><code>int</code></td>
+<td><code>50</code></td>
+<td>PCA number of components</td>
+</tr>
+<tr>
+<td><strong><code>param_grids</code></strong></td>
+<td><code>list</code></td>
+<td><code>None</code></td>
+<td>param_grid for grid search, if None - gets default grid from utils</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -112,14 +161,11 @@ nb_path: "nbs/02_learn.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.create_pipeline" class="doc_header"><code>Learner.create_pipeline</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L54" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.create_pipeline</code>()</p>
+<h4 id="Learner.create_pipeline" class="doc_header"><code>Learner.create_pipeline</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L54" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.create_pipeline</code>()</p>
 </blockquote>
-<pre><code>Create and return pipeline
-</code></pre>
+
+<pre><code>Create and return pipeline</code></pre>
 
 </div>
 
@@ -141,22 +187,43 @@ nb_path: "nbs/02_learn.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.train" class="doc_header"><code>Learner.train</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L70" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.train</code>(<strong><code>scoring</code></strong>:<code>str</code>=<em><code>'accuracy'</code></em>, <strong><code>cv</code></strong>:<code>int</code>=<em><code>5</code></em>, <strong><code>n_jobs</code></strong>:<code>int</code>=<em><code>-1</code></em>)</p>
+<h4 id="Learner.train" class="doc_header"><code>Learner.train</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.train</code>(<strong><code>scoring</code></strong>:<code>str</code>=<em><code>'accuracy'</code></em>, <strong><code>cv</code></strong>:<code>int</code>=<em><code>5</code></em>, <strong><code>n_jobs</code></strong>:<code>int</code>=<em><code>-1</code></em>)</p>
 </blockquote>
+
 <pre><code>Run GridSearchCV for all models on X_train and y_train of dataset.
 Returns:
     train_results: list of grid search results
-    grid_list: list of trained grid objects
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>scoring</code></strong>|<code>str</code>|<code>accuracy</code>|must be one of https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter|
-|<strong><code>cv</code></strong>|<code>int</code>|<code>5</code>|defaults to 5-fold CV|
-|<strong><code>n_jobs</code></strong>|<code>int</code>|<code>-1</code>|defaults to -1 to use all cores|</p>
+    grid_list: list of trained grid objects</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>scoring</code></strong></td>
+<td><code>str</code></td>
+<td><code>accuracy</code></td>
+<td>must be one of <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter">https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter</a></td>
+</tr>
+<tr>
+<td><strong><code>cv</code></strong></td>
+<td><code>int</code></td>
+<td><code>5</code></td>
+<td>defaults to 5-fold CV</td>
+</tr>
+<tr>
+<td><strong><code>n_jobs</code></strong></td>
+<td><code>int</code></td>
+<td><code>-1</code></td>
+<td>defaults to -1 to use all cores</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -178,14 +245,11 @@ Returns:
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.get_top_5_train_results" class="doc_header"><code>Learner.get_top_5_train_results</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L109" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.get_top_5_train_results</code>()</p>
+<h4 id="Learner.get_top_5_train_results" class="doc_header"><code>Learner.get_top_5_train_results</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L109" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.get_top_5_train_results</code>()</p>
 </blockquote>
-<pre><code>Return top 5 results for each grid
-</code></pre>
+
+<pre><code>Return top 5 results for each grid</code></pre>
 
 </div>
 
@@ -207,14 +271,11 @@ Returns:
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.predict" class="doc_header"><code>Learner.predict</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L116" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.predict</code>()</p>
+<h4 id="Learner.predict" class="doc_header"><code>Learner.predict</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L116" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.predict</code>()</p>
 </blockquote>
-<pre><code>Get predictions on the dataset's X_test from best estimators of GridSearchCV.
-</code></pre>
+
+<pre><code>Get predictions on the dataset's X_test from best estimators of GridSearchCV.</code></pre>
 
 </div>
 
@@ -236,18 +297,34 @@ Returns:
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.pick_k" class="doc_header"><code>Learner.pick_k</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L135" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.pick_k</code>(<strong><code>max_clusters</code></strong>:<code>int</code>=<em><code>10</code></em>, <strong><code>pca_n_components</code></strong>:<code>int</code>=<em><code>50</code></em>)</p>
+<h4 id="Learner.pick_k" class="doc_header"><code>Learner.pick_k</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L135" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.pick_k</code>(<strong><code>max_clusters</code></strong>:<code>int</code>=<em><code>10</code></em>, <strong><code>pca_n_components</code></strong>:<code>int</code>=<em><code>50</code></em>)</p>
 </blockquote>
-<pre><code>Plot elbow and silohutte curves &amp; print silohutte scores to help determine the ideal 'k' for Kmeans.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>max_clusters</code></strong>|<code>int</code>|<code>10</code>|max number of clusters to try out|
-|<strong><code>pca_n_components</code></strong>|<code>int</code>|<code>50</code>|number of components to reduce to in PCA|</p>
+
+<pre><code>Plot elbow and silohutte curves &amp; print silohutte scores to help determine the ideal 'k' for Kmeans.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>max_clusters</code></strong></td>
+<td><code>int</code></td>
+<td><code>10</code></td>
+<td>max number of clusters to try out</td>
+</tr>
+<tr>
+<td><strong><code>pca_n_components</code></strong></td>
+<td><code>int</code></td>
+<td><code>50</code></td>
+<td>number of components to reduce to in PCA</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -283,19 +360,40 @@ Returns:
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.analyze_clusters" class="doc_header"><code>Learner.analyze_clusters</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L165" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.analyze_clusters</code>(<strong><code>X_pca</code></strong>:<code>ndarray</code>, <strong><code>k</code></strong>:<code>int</code>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>10</code></em>)</p>
+<h4 id="Learner.analyze_clusters" class="doc_header"><code>Learner.analyze_clusters</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L165" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.analyze_clusters</code>(<strong><code>X_pca</code></strong>:<code>ndarray</code>, <strong><code>k</code></strong>:<code>int</code>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>10</code></em>)</p>
 </blockquote>
-<pre><code>Perform KMeans clustering, print cluster counts and plot clusters from the result.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>X_pca</code></strong>|<code>ndarray</code>||dim reduced X numpy ndarray|
-|<strong><code>k</code></strong>|<code>int</code>||the chosen value of k for KMeans|
-|<strong><code>random_state</code></strong>|<code>int</code>|<code>10</code>|random state for KMeans|</p>
+
+<pre><code>Perform KMeans clustering, print cluster counts and plot clusters from the result.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>X_pca</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>dim reduced X numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>k</code></strong></td>
+<td><code>int</code></td>
+<td></td>
+<td>the chosen value of k for KMeans</td>
+</tr>
+<tr>
+<td><strong><code>random_state</code></strong></td>
+<td><code>int</code></td>
+<td><code>10</code></td>
+<td>random state for KMeans</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -317,17 +415,28 @@ Returns:
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Learner.run_label_spreading" class="doc_header"><code>Learner.run_label_spreading</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L179" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>Learner.run_label_spreading</code>(<strong><code>pca_n_components</code></strong>:<code>int</code>=<em><code>50</code></em>)</p>
+<h4 id="Learner.run_label_spreading" class="doc_header"><code>Learner.run_label_spreading</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/learn.py#L179" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Learner.run_label_spreading</code>(<strong><code>pca_n_components</code></strong>:<code>int</code>=<em><code>50</code></em>)</p>
 </blockquote>
-<pre><code>Run Label Spreading, print report, append results to predict_results.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>pca_n_components</code></strong>|<code>int</code>|<code>50</code>|number of components to reduce to in PCA|</p>
+
+<pre><code>Run Label Spreading, print report, append results to predict_results.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>pca_n_components</code></strong></td>
+<td><code>int</code></td>
+<td><code>50</code></td>
+<td>number of components to reduce to in PCA</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -340,5 +449,5 @@ Returns:
     {% endraw %}
 
 </div>
-
+ 
 

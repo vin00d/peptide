@@ -38,8 +38,6 @@ nb_path: "nbs/99_utils.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
-</body></html>
-
 
     </div>
 </div>
@@ -65,14 +63,11 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_default_param_grid" class="doc_header"><code>get_default_param_grid</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L14" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>get_default_param_grid</code>()</p>
+<h4 id="get_default_param_grid" class="doc_header"><code>get_default_param_grid</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L14" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_default_param_grid</code>()</p>
 </blockquote>
-<pre><code>Create and return a default gird search param grid
-</code></pre>
+
+<pre><code>Create and return a default gird search param grid</code></pre>
 
 </div>
 
@@ -92,55 +87,53 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_default_param_grid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-    <span class="sd">"""Create and return a default gird search param grid"""</span>
+    <span class="sd">&quot;&quot;&quot;Create and return a default gird search param grid&quot;&quot;&quot;</span>
 
     <span class="n">lr_grid</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"classifier"</span><span class="p">:</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">()],</span>
-            <span class="s2">"classifier__solver"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"lbfgs"</span><span class="p">],</span>
-            <span class="s2">"classifier__penalty"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l2"</span><span class="p">],</span>
-            <span class="s2">"classifier__C"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="c1"># default=1.0</span>
-            <span class="s2">"classifier__max_iter"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>  <span class="c1"># default=100</span>
+            <span class="s2">&quot;classifier&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">()],</span>
+            <span class="s2">&quot;classifier__solver&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;classifier__penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l2&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;classifier__C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="c1"># default=1.0</span>
+            <span class="s2">&quot;classifier__max_iter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>  <span class="c1"># default=100</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="s2">"classifier"</span><span class="p">:</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">()],</span>
-            <span class="s2">"classifier__solver"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"liblinear"</span><span class="p">],</span>
-            <span class="s2">"classifier__penalty"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l1"</span><span class="p">,</span> <span class="s2">"l2"</span><span class="p">],</span>
-            <span class="s2">"classifier__C"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-            <span class="s2">"classifier__max_iter"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
+            <span class="s2">&quot;classifier&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">LogisticRegression</span><span class="p">()],</span>
+            <span class="s2">&quot;classifier__solver&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;liblinear&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;classifier__penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;classifier__C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+            <span class="s2">&quot;classifier__max_iter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
         <span class="p">},</span>
     <span class="p">]</span>
     <span class="n">svm_grid</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"classifier"</span><span class="p">:</span> <span class="p">[</span><span class="n">LinearSVC</span><span class="p">()],</span>
-            <span class="s2">"classifier__loss"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"hinge"</span><span class="p">],</span>  <span class="c1"># default=squared_hinge</span>
-            <span class="s2">"classifier__penalty"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l2"</span><span class="p">],</span>  <span class="c1"># default=l2</span>
-            <span class="s2">"classifier__C"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="c1"># default=1.0</span>
-            <span class="s2">"classifier__max_iter"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">],</span>  <span class="c1"># default=1000</span>
+            <span class="s2">&quot;classifier&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">LinearSVC</span><span class="p">()],</span>
+            <span class="s2">&quot;classifier__loss&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hinge&quot;</span><span class="p">],</span>  <span class="c1"># default=squared_hinge</span>
+            <span class="s2">&quot;classifier__penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l2&quot;</span><span class="p">],</span>  <span class="c1"># default=l2</span>
+            <span class="s2">&quot;classifier__C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="c1"># default=1.0</span>
+            <span class="s2">&quot;classifier__max_iter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">],</span>  <span class="c1"># default=1000</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="s2">"classifier"</span><span class="p">:</span> <span class="p">[</span><span class="n">LinearSVC</span><span class="p">()],</span>
-            <span class="s2">"classifier__loss"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"squared_hinge"</span><span class="p">],</span>
-            <span class="s2">"classifier__penalty"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"l1"</span><span class="p">,</span> <span class="s2">"l2"</span><span class="p">],</span>
-            <span class="s2">"classifier__C"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-            <span class="s2">"classifier__max_iter"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">],</span>
+            <span class="s2">&quot;classifier&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">LinearSVC</span><span class="p">()],</span>
+            <span class="s2">&quot;classifier__loss&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;squared_hinge&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;classifier__penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;classifier__C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+            <span class="s2">&quot;classifier__max_iter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">],</span>
         <span class="p">},</span>
     <span class="p">]</span>
     <span class="n">xgb_grid</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"classifier"</span><span class="p">:</span> <span class="p">[</span><span class="n">XGBClassifier</span><span class="p">()],</span>
-            <span class="c1"># "classifier__gamma": (5, 10),</span>
-            <span class="s2">"classifier__learning_rate"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>  <span class="c1"># default 0.1</span>
-            <span class="s2">"classifier__max_depth"</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>  <span class="c1"># default 6</span>
-            <span class="s2">"classifier__n_estimators"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>  <span class="c1"># default 100</span>
-            <span class="c1"># "classifier__subsample": (0.5, 1),</span>
+            <span class="s2">&quot;classifier&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">XGBClassifier</span><span class="p">()],</span>
+            <span class="c1"># &quot;classifier__gamma&quot;: (5, 10),</span>
+            <span class="s2">&quot;classifier__learning_rate&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>  <span class="c1"># default 0.1</span>
+            <span class="s2">&quot;classifier__max_depth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>  <span class="c1"># default 6</span>
+            <span class="s2">&quot;classifier__n_estimators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>  <span class="c1"># default 100</span>
+            <span class="c1"># &quot;classifier__subsample&quot;: (0.5, 1),</span>
         <span class="p">}</span>
     <span class="p">]</span>
 
     <span class="k">return</span> <span class="p">[</span><span class="n">lr_grid</span><span class="p">,</span> <span class="n">svm_grid</span><span class="p">,</span> <span class="n">xgb_grid</span><span class="p">]</span>
 </pre></div>
-</body></html>
-
 
     </div>
 </div>
@@ -166,18 +159,34 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="visualize_2pcs" class="doc_header"><code>visualize_2pcs</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L66" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>visualize_2pcs</code>(<strong><code>pcs</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>)</p>
+<h4 id="visualize_2pcs" class="doc_header"><code>visualize_2pcs</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L66" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>visualize_2pcs</code>(<strong><code>pcs</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>)</p>
 </blockquote>
-<pre><code>Visualize 2 principal components.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>pcs</code></strong>|<code>ndarray</code>||dimensionality reduced 'X' numpy ndarray|
-|<strong><code>y</code></strong>|<code>ndarray</code>||'y' numpy array|</p>
+
+<pre><code>Visualize 2 principal components.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>pcs</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>dimensionality reduced 'X' numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>y</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>'y' numpy array</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -206,18 +215,34 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="visualize_3pcs" class="doc_header"><code>visualize_3pcs</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L81" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>visualize_3pcs</code>(<strong><code>pcs</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>)</p>
+<h4 id="visualize_3pcs" class="doc_header"><code>visualize_3pcs</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L81" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>visualize_3pcs</code>(<strong><code>pcs</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>)</p>
 </blockquote>
-<pre><code>Visualize 3 principal components.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>pcs</code></strong>|<code>ndarray</code>||dimensionality reduced 'X' numpy ndarray|
-|<strong><code>y</code></strong>|<code>ndarray</code>||'y' numpy array|</p>
+
+<pre><code>Visualize 3 principal components.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>pcs</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>dimensionality reduced 'X' numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>y</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>'y' numpy array</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -246,20 +271,41 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="train_predict" class="doc_header"><code>train_predict</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L98" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>train_predict</code>(<strong><code>X_train</code></strong>:<code>ndarray</code>, <strong><code>y_train</code></strong>:<code>ndarray</code>, <strong><code>X_test</code></strong>:<code>ndarray</code>, <strong><code>y_test</code></strong>:<code>ndarray</code>)</p>
+<h4 id="train_predict" class="doc_header"><code>train_predict</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L98" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>train_predict</code>(<strong><code>X_train</code></strong>:<code>ndarray</code>, <strong><code>y_train</code></strong>:<code>ndarray</code>, <strong><code>X_test</code></strong>:<code>ndarray</code>, <strong><code>y_test</code></strong>:<code>ndarray</code>)</p>
 </blockquote>
-<pre><code>Utility helper function to quickly train and predict
-</code></pre>
-<p>||Type|Default|
-|---|---|---|
-|<strong><code>X_train</code></strong>|<code>ndarray</code>||
-|<strong><code>y_train</code></strong>|<code>ndarray</code>||
-|<strong><code>X_test</code></strong>|<code>ndarray</code>||
-|<strong><code>y_test</code></strong>|<code>ndarray</code>||</p>
+
+<pre><code>Utility helper function to quickly train and predict</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>X_train</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>y_train</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>X_test</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong><code>y_test</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -288,19 +334,40 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="visualize_elbow" class="doc_header"><code>visualize_elbow</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L138" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>visualize_elbow</code>(<strong><code>X</code></strong>:<code>ndarray</code>, <strong><code>ks</code></strong>:<code>list</code>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>10</code></em>)</p>
+<h4 id="visualize_elbow" class="doc_header"><code>visualize_elbow</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L138" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>visualize_elbow</code>(<strong><code>X</code></strong>:<code>ndarray</code>, <strong><code>ks</code></strong>:<code>list</code>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>10</code></em>)</p>
 </blockquote>
-<pre><code>Visualize elbow plot for KMeans.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>X</code></strong>|<code>ndarray</code>||'X' numpy ndarray|
-|<strong><code>ks</code></strong>|<code>list</code>||list of 'k' values to try - ideally 2 to 10|
-|<strong><code>random_state</code></strong>|<code>int</code>|<code>10</code>|random state for KMeans|</p>
+
+<pre><code>Visualize elbow plot for KMeans.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>X</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>'X' numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>ks</code></strong></td>
+<td><code>list</code></td>
+<td></td>
+<td>list of 'k' values to try - ideally 2 to 10</td>
+</tr>
+<tr>
+<td><strong><code>random_state</code></strong></td>
+<td><code>int</code></td>
+<td><code>10</code></td>
+<td>random state for KMeans</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -329,19 +396,40 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="plot_silhouette_scores" class="doc_header"><code>plot_silhouette_scores</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L160" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>plot_silhouette_scores</code>(<strong><code>max_clusters</code></strong>:<code>int</code>, <strong><code>X</code></strong>:<code>ndarray</code>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>10</code></em>)</p>
+<h4 id="plot_silhouette_scores" class="doc_header"><code>plot_silhouette_scores</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L160" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>plot_silhouette_scores</code>(<strong><code>max_clusters</code></strong>:<code>int</code>, <strong><code>X</code></strong>:<code>ndarray</code>, <strong><code>random_state</code></strong>:<code>int</code>=<em><code>10</code></em>)</p>
 </blockquote>
-<pre><code>List and plot silhouette scores for KMeans.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>max_clusters</code></strong>|<code>int</code>||max value for 'k' for KMeans clustering|
-|<strong><code>X</code></strong>|<code>ndarray</code>||the 'X' numpy ndarray|
-|<strong><code>random_state</code></strong>|<code>int</code>|<code>10</code>|random state for KMeans|</p>
+
+<pre><code>List and plot silhouette scores for KMeans.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>max_clusters</code></strong></td>
+<td><code>int</code></td>
+<td></td>
+<td>max value for 'k' for KMeans clustering</td>
+</tr>
+<tr>
+<td><strong><code>X</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>the 'X' numpy ndarray</td>
+</tr>
+<tr>
+<td><strong><code>random_state</code></strong></td>
+<td><code>int</code></td>
+<td><code>10</code></td>
+<td>random state for KMeans</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -370,18 +458,34 @@ nb_path: "nbs/99_utils.ipynb"
 <div class="output_area">
 
 
-
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="visualize_clusters" class="doc_header"><code>visualize_clusters</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L189" class="source_link" style="float:right">[source]</a></h4>
-<blockquote>
-<p><code>visualize_clusters</code>(<strong><code>clust_lbls</code></strong>:<code>ndarray</code>, <strong><code>X</code></strong>:<code>ndarray</code>)</p>
+<h4 id="visualize_clusters" class="doc_header"><code>visualize_clusters</code><a href="https://github.com/vin00d/peptide/tree/master/peptide/utils.py#L189" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>visualize_clusters</code>(<strong><code>clust_lbls</code></strong>:<code>ndarray</code>, <strong><code>X</code></strong>:<code>ndarray</code>)</p>
 </blockquote>
-<pre><code>Visualize clusters in a plot of first 2 principal components.
-</code></pre>
-<p>||Type|Default|Details|
-|---|---|---|---|
-|<strong><code>clust_lbls</code></strong>|<code>ndarray</code>||cluster labels after KMeans fitting|
-|<strong><code>X</code></strong>|<code>ndarray</code>||dim reduced X used for KMeans|</p>
+
+<pre><code>Visualize clusters in a plot of first 2 principal components.</code></pre>
+<table>
+<thead><tr>
+<th></th>
+<th>Type</th>
+<th>Default</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>clust_lbls</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>cluster labels after KMeans fitting</td>
+</tr>
+<tr>
+<td><strong><code>X</code></strong></td>
+<td><code>ndarray</code></td>
+<td></td>
+<td>dim reduced X used for KMeans</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -394,5 +498,5 @@ nb_path: "nbs/99_utils.ipynb"
     {% endraw %}
 
 </div>
-
+ 
 

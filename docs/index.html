@@ -6,8 +6,8 @@ title: peptide
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "An open source library for peptide classification using Machine Learning and Deep Learning."
-description: "An open source library for peptide classification using Machine Learning and Deep Learning."
+summary: "An ML library for peptide classification using pre-trained embeddings."
+description: "An ML library for peptide classification using pre-trained embeddings."
 nb_path: "nbs/index.ipynb"
 ---
 <!--
@@ -53,7 +53,7 @@ Additionally, this project will compare models built with vastly different appro
 <p><strong>Model Scoring System:</strong> Develop a system that produces accuracy scores</p>
 <ul>
 <li>By running any given (labeled) dataset</li>
-<li>Through the multiple models listed above</li>
+<li>Through the multiple models listed above </li>
 <li>And display / return accuracies on the classification tasks for each model.</li>
 </ul>
 
@@ -68,14 +68,45 @@ Additionally, this project will compare models built with vastly different appro
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>With conda</p>
-<ul>
-<li><code>conda install -c conda-forge peptide</code></li>
+<h3 id="peptide">peptide<a class="anchor-link" href="#peptide"> </a></h3><ol>
+<li>Git clone the repo.<ul>
+<li><a href="https://github.com/vin00d/peptide.git">https://github.com/vin00d/peptide.git</a></li>
 </ul>
-<p>With pip</p>
-<ul>
-<li><code>pip install peptide</code></li>
+</li>
+<li>Create a new conda env using the environment.yml file.<ul>
+<li><code>cd peptide</code></li>
+<li><code>conda env create -n peptide -f environment.yml</code></li>
 </ul>
+</li>
+<li>To try things out, install this library in editable mode.<ul>
+<li><code>pip install -e .</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="ProSE">ProSE<a class="anchor-link" href="#ProSE"> </a></h3><p>To create LSTM embeddings ..</p>
+<ol>
+<li>Clone the ProSE repo<ul>
+<li><a href="https://github.com/tbepler/prose.git">https://github.com/tbepler/prose.git</a></li>
+</ul>
+</li>
+<li>Then complete setup instructions for ProSE <a href="https://github.com/tbepler/prose#setup-instructions">detailed on their repo</a>, also summarized below.<ul>
+<li>Download pre-trained embedding models.</li>
+<li>Create conda env and install dependencies.</li>
+</ul>
+</li>
+</ol>
+<h3 id="ESM">ESM<a class="anchor-link" href="#ESM"> </a></h3><p>To create Transformer embeddings ..</p>
+<ol>
+<li>Clone the ESM repo<ul>
+<li><a href="https://github.com/facebookresearch/esm.git">https://github.com/facebookresearch/esm.git</a></li>
+</ul>
+</li>
+<li>Install ESM and its dependesncies <a href="https://github.com/facebookresearch/esm#usage-">detailed on their repo</a>, one option summarized below.<ul>
+<li>Create new conda env with python 3.9</li>
+<li>In that conda env pip install <code>torch</code> and <code>fair-esm==0.5.0</code></li>
+</ul>
+</li>
+</ol>
 
 </div>
 </div>
@@ -88,61 +119,13 @@ Additionally, this project will compare models built with vastly different appro
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>git clone this repo</li>
-<li>create conda env - <code>conda env create -n peptide -f environment.yml</code></li>
-<li><code>conda activate peptide</code></li>
-</ul>
-<p>To develop using nbs ..</p>
-<ul>
-<li><code>pip install -e .</code></li>
-</ul>
+<ol>
+<li>Read through the quick start guides and run cell by cell</li>
+</ol>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
-
-</div>
-</div>
-</div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
-</body></html>
-
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="References">References<a class="anchor-link" href="#References"> </a></h1>
@@ -154,23 +137,18 @@ Additionally, this project will compare models built with vastly different appro
 <p>This library is created using the awesome <a href="https://nbdev1.fast.ai/">nbdev v1</a>, soon to be upgraded to <a href="https://www.fast.ai/2022/07/28/nbdev-v2/">nbdev v2</a>.</p>
 <p>Pretrained embeddings used in this library are from the following papers</p>
 <ol>
-<li>LSTM - Protein Sequence Embeddings (<strong>ProSE</strong>) - Multi-task and masked language model-based protein sequence embedding models - <a href="https://github.com/tbepler/prose">GitHub</a></li>
-</ol>
-<blockquote>
-<p>Bepler, T., Berger, B. Learning the protein language:evolution, structure, and function. Cell Systems 12, 6 (2021). https://doi.org/10.1016/j.cels.2021.05.017&gt; Bepler, T., Berger, B. Learning protein sequence embeddings using information from structure. International Conference on Learning Representations (2019). https://openreview.net/pdf?id=SygLehCqtm</p>
+<li>LSTM - Protein Sequence Embeddings (<strong>ProSE</strong>) - Multi-task and masked language model-based protein sequence embedding models - <a href="https://github.com/tbepler/prose">GitHub</a><blockquote><p>Bepler, T., Berger, B. Learning the protein language:evolution, structure, and function. Cell Systems 12, 6 (2021). <a href="https://doi.org/10.1016/j.cels.2021.05.017&gt;">https://doi.org/10.1016/j.cels.2021.05.017&gt;</a> Bepler, T., Berger, B. Learning protein sequence embeddings using information from structure. International Conference on Learning Representations (2019). <a href="https://openreview.net/pdf?id=SygLehCqtm">https://openreview.net/pdf?id=SygLehCqtm</a></p>
 </blockquote>
-<ol start="2">
-<li>Transformer - Evolutionary Scale Modeling (<strong>ESM</strong>) - <a href="https://github.com/facebookresearch/esm">GitHub</a></li>
-</ol>
-<blockquote>
-<p>Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences Alexander Rives, Joshua Meier, Tom Sercu, Siddharth Goyal, Zeming Lin, Jason Liu, Demi Guo, Myle Ott, C. Lawrence Zitnick, Jerry Ma, Rob Fergus</p>
+</li>
+<li>Transformer - Evolutionary Scale Modeling (<strong>ESM</strong>) - <a href="https://github.com/facebookresearch/esm">GitHub</a><blockquote><p>Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences Alexander Rives, Joshua Meier, Tom Sercu, Siddharth Goyal, Zeming Lin, Jason Liu, Demi Guo, Myle Ott, C. Lawrence Zitnick, Jerry Ma, Rob Fergus
+bioRxiv 622803; doi:<a href="https://doi.org/10.1101/622803">https://doi.org/10.1101/622803</a></p>
 </blockquote>
-<pre><code>&gt; bioRxiv 622803; doi:https://doi.org/10.1101/622803
-</code></pre>
+</li>
+</ol>
 
 </div>
 </div>
 </div>
 </div>
-
+ 
 
