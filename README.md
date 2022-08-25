@@ -45,13 +45,13 @@ Read through any (or all) of the following quick start guides to get a general i
     - `04_lstm.ipynb`
     - `05_transformer.ipynb`
 - Option 2: just open a jupyter notebook and copy, paste & run cell-by-cell from any of the following quick start guides.
-    - [Onehot Embeddings](/peptide/onehot.html)
-    - [LSTM Embeddings](/peptide/lstm.html)
-    - [Transformer Embeddings](/peptide/transformer.html)
+    - [Onehot Embeddings](https://vin00d.github.io/peptide/onehot.html)
+    - [LSTM Embeddings](https://vin00d.github.io/peptide/lstm.html)
+    - [Transformer Embeddings](https://vin00d.github.io/peptide/transformer.html)
 
 ### Settings file and DATASTORE
 
-- The steps demonstrated in these notebooks use default locations for datastore, etc as detailed in [Basics](/peptide/basics.html).
+- The steps demonstrated in these notebooks use default locations for datastore, etc as detailed in [Basics](https://vin00d.github.io/peptide/basics.html).
 - The first cell in every notebook imports these settings for convenience.
 - So if you intend to use default settings, make sure to place the datasets in the DATASTORE as detailed next.
 {% include note.html content='The settings file and default folder structure will be created by either executing `from peptide.basics import *` in a cell or executing the first cell in any of the above notebooks. This will create a `DATASTORE` variable pointing to the path `~/.peptide/datasets`.' %}
