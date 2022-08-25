@@ -2,34 +2,20 @@
 > An ML library for peptide classification using pre-trained embeddings.
 
 
-This project aims to build a series of classifiers that can predict whether a given amino acid sequence is one or more of the 3 target peptides.<br>
-Additionally, this project will compare models built with vastly different approaches ranging from classic ML models with feature engineering by experts to large transformer-based models.
+This library demonstrates the performance of a series of classifiers on the task of predicting whether a given amino acid sequence is one or more of the 3 target peptides.<br>
+Specifically, this library compares the performance of classic ML classifiers trained on vastly different feature representations (of the amino acid sequences) - ranging from One-Hot embeddings to pre-trained embeddings from large protein language models.
 
-**Classification Tasks:** Given a sequence of amino acids (NLP equivalent = ‘words’), classify whether the resulting peptide (NLP equivalent = ‘sentence’) is one or many of the following targets (multi-task classification not multi-class i.e. 3 sigmoids not 1 softmax).
+**Classification Tasks:** Given a sequence of amino acids, classify whether the resulting peptide is one of the following.
 - Anticancer peptide (ACP)
 - DNA-binding protein
-- Antimicrobial peptide (AMP).
-
-**Multiple Models:** Develop multiple models for the above classification tasks
-- Supervised ML model(s) with hand engineered features from bio-experts
-- Supervised ML model(s) using pre-trained embeddings with feature-space reduced using the following unsupervised techniques
-    - Principal Component Analysis (PCA)
-    - Autoencoders & its variants
-    - K-Means Clustering
-- Deep Learning Transformer models using pre-trained embeddings
-
-**Model Scoring System:** Develop a system that produces accuracy scores 
-- By running any given (labeled) dataset
-- Through the multiple models listed above 
-- And display / return accuracies on the classification tasks for each model.
-
+- Antimicrobial peptide (AMP)
 
 ## Install
 
 ### peptide
 1. Git clone the repo.
     - https://github.com/vin00d/peptide.git
-2. Create a new conda env using the environment.yml file.
+2. Create a new conda environment using the environment.yml file.
     - `cd peptide`
     - `conda env create -n peptide -f environment.yml`
 3. To try things out, install this library in editable mode.
@@ -41,19 +27,44 @@ To create LSTM embeddings ..
     - https://github.com/tbepler/prose.git
 2. Then complete setup instructions for ProSE [detailed on their repo](https://github.com/tbepler/prose#setup-instructions), also summarized below.
     - Download pre-trained embedding models.
-    - Create conda env and install dependencies.
+    - Create conda environment and install dependencies.
 
 ### ESM
 To create Transformer embeddings ..
 1. Clone the ESM repo
     - https://github.com/facebookresearch/esm.git
-2. Install ESM and its dependesncies [detailed on their repo](https://github.com/facebookresearch/esm#usage-), one option summarized below.
-    - Create new conda env with python 3.9
-    - In that conda env pip install `torch` and `fair-esm==0.5.0`
+2. Install ESM and its dependencies [detailed on their repo](https://github.com/facebookresearch/esm#usage-), one option summarized below.
+    - Create new conda environment with python 3.9
+    - In that conda environment, pip install `torch` and `fair-esm==0.5.0`
 
 ## How to use
 
-1. Read through the quick start guides and run cell by cell
+Read through any (or all) of the following quick start guides to get a general idea. Then try running any of them as detailed below:
+- Option 1: run any of the following jupyter noteboooks in the `nbs` folder.
+    - `03_onehot.ipynb`
+    - `04_lstm.ipynb`
+    - `05_transformer.ipynb`
+- Option 2: just open a jupyter notebook and copy, paste & run cell-by-cell from any of the following quick start guides.
+    - [Onehot Embeddings](/peptide/onehot.html)
+    - [LSTM Embeddings](/peptide/lstm.html)
+    - [Transformer Embeddings](/peptide/transformer.html)
+
+### Settings file and DATASTORE
+
+- The steps demonstrated in these notebooks use default locations for datastore, etc as detailed in [Basics](/peptide/basics.html).
+- The first cell in every notebook imports these settings for convenience.
+- So if you intend to use default settings, make sure to place the datasets in the DATASTORE as detailed next.
+{% include note.html content='The settings file and default folder structure will be created by either executing `from peptide.basics import *` in a cell or executing the first cell in any of the above notebooks. This will create a `DATASTORE` variable pointing to the path `~/.peptide/datasets`.' %}
+
+### Copy Datasets Into DATASTORE
+
+- Copy dataset directories into the location pointed to by the `DATASTORE` global variable.
+    - for example `~/.peptide/datasets`
+- Resulting folder structure **must** be
+    - `~/.peptide/datasets/acp/train_data.csv`
+    - `~/.peptide/datasets/amp/all_data.csv`
+    - `~/.peptide/datasets/dna_binding/train.csv`
+    
 
 # References
 

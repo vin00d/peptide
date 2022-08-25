@@ -2,7 +2,7 @@ repository: vin00d/peptide
 output: web
 topnav_title: peptide
 site_title: peptide
-company_name: FourthBrain, InstaDeep
+company_name: Vinod, FourthBrain, InstaDeep
 description: A python library for peptide classification
 # Set to false to disable KaTeX math
 use_math: true

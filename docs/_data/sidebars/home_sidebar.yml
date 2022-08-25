@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Onehot Encoding
+      title: Onehot Embeddings
       url: /onehot
     - output: web,pdf
       title: LSTM Embeddings

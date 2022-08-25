@@ -1,7 +1,7 @@
 {
   "Quick Starts": {
     "Overview": "/",
-    "Onehot Encoding": "/onehot",
+    "Onehot Embeddings": "/onehot",
     "LSTM Embeddings": "/lstm",
     "Transformer Embeddings": "/transformer"
   },

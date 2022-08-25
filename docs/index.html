@@ -31,30 +31,13 @@ nb_path: "nbs/index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This project aims to build a series of classifiers that can predict whether a given amino acid sequence is one or more of the 3 target peptides.<br>
-Additionally, this project will compare models built with vastly different approaches ranging from classic ML models with feature engineering by experts to large transformer-based models.</p>
-<p><strong>Classification Tasks:</strong> Given a sequence of amino acids (NLP equivalent = ‘words’), classify whether the resulting peptide (NLP equivalent = ‘sentence’) is one or many of the following targets (multi-task classification not multi-class i.e. 3 sigmoids not 1 softmax).</p>
+<p>This library demonstrates the performance of a series of classifiers on the task of predicting whether a given amino acid sequence is one or more of the 3 target peptides.<br>
+Specifically, this library compares the performance of classic ML classifiers trained on vastly different feature representations (of the amino acid sequences) - ranging from One-Hot embeddings to pre-trained embeddings from large protein language models.</p>
+<p><strong>Classification Tasks:</strong> Given a sequence of amino acids, classify whether the resulting peptide is one of the following.</p>
 <ul>
 <li>Anticancer peptide (ACP)</li>
 <li>DNA-binding protein</li>
-<li>Antimicrobial peptide (AMP).</li>
-</ul>
-<p><strong>Multiple Models:</strong> Develop multiple models for the above classification tasks</p>
-<ul>
-<li>Supervised ML model(s) with hand engineered features from bio-experts</li>
-<li>Supervised ML model(s) using pre-trained embeddings with feature-space reduced using the following unsupervised techniques<ul>
-<li>Principal Component Analysis (PCA)</li>
-<li>Autoencoders &amp; its variants</li>
-<li>K-Means Clustering</li>
-</ul>
-</li>
-<li>Deep Learning Transformer models using pre-trained embeddings</li>
-</ul>
-<p><strong>Model Scoring System:</strong> Develop a system that produces accuracy scores</p>
-<ul>
-<li>By running any given (labeled) dataset</li>
-<li>Through the multiple models listed above </li>
-<li>And display / return accuracies on the classification tasks for each model.</li>
+<li>Antimicrobial peptide (AMP)</li>
 </ul>
 
 </div>
@@ -73,7 +56,7 @@ Additionally, this project will compare models built with vastly different appro
 <li><a href="https://github.com/vin00d/peptide.git">https://github.com/vin00d/peptide.git</a></li>
 </ul>
 </li>
-<li>Create a new conda env using the environment.yml file.<ul>
+<li>Create a new conda environment using the environment.yml file.<ul>
 <li><code>cd peptide</code></li>
 <li><code>conda env create -n peptide -f environment.yml</code></li>
 </ul>
@@ -91,7 +74,7 @@ Additionally, this project will compare models built with vastly different appro
 </li>
 <li>Then complete setup instructions for ProSE <a href="https://github.com/tbepler/prose#setup-instructions">detailed on their repo</a>, also summarized below.<ul>
 <li>Download pre-trained embedding models.</li>
-<li>Create conda env and install dependencies.</li>
+<li>Create conda environment and install dependencies.</li>
 </ul>
 </li>
 </ol>
@@ -101,9 +84,9 @@ Additionally, this project will compare models built with vastly different appro
 <li><a href="https://github.com/facebookresearch/esm.git">https://github.com/facebookresearch/esm.git</a></li>
 </ul>
 </li>
-<li>Install ESM and its dependesncies <a href="https://github.com/facebookresearch/esm#usage-">detailed on their repo</a>, one option summarized below.<ul>
-<li>Create new conda env with python 3.9</li>
-<li>In that conda env pip install <code>torch</code> and <code>fair-esm==0.5.0</code></li>
+<li>Install ESM and its dependencies <a href="https://github.com/facebookresearch/esm#usage-">detailed on their repo</a>, one option summarized below.<ul>
+<li>Create new conda environment with python 3.9</li>
+<li>In that conda environment, pip install <code>torch</code> and <code>fair-esm==0.5.0</code></li>
 </ul>
 </li>
 </ol>
@@ -119,9 +102,51 @@ Additionally, this project will compare models built with vastly different appro
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>Read through the quick start guides and run cell by cell</li>
-</ol>
+<p>Read through any (or all) of the following quick start guides to get a general idea. Then try running any of them as detailed below:</p>
+<ul>
+<li>Option 1: run any of the following jupyter noteboooks in the <code>nbs</code> folder.<ul>
+<li><code>03_onehot.ipynb</code></li>
+<li><code>04_lstm.ipynb</code></li>
+<li><code>05_transformer.ipynb</code></li>
+</ul>
+</li>
+<li>Option 2: just open a jupyter notebook and copy, paste &amp; run cell-by-cell from any of the following quick start guides.<ul>
+<li><a href="/peptide/onehot.html">Onehot Embeddings</a></li>
+<li><a href="/peptide/lstm.html">LSTM Embeddings</a></li>
+<li><a href="/peptide/transformer.html">Transformer Embeddings</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Settings-file-and-DATASTORE">Settings file and DATASTORE<a class="anchor-link" href="#Settings-file-and-DATASTORE"> </a></h3><ul>
+<li>The steps demonstrated in these notebooks use default locations for datastore, etc as detailed in <a href="/peptide/basics.html">Basics</a>.</li>
+<li>The first cell in every notebook imports these settings for convenience.</li>
+<li>So if you intend to use default settings, make sure to place the datasets in the DATASTORE as detailed next.
+{% include note.html content='The settings file and default folder structure will be created by either executing <code>from peptide.basics import *</code> in a cell or executing the first cell in any of the above notebooks. This will create a <code>DATASTORE</code> variable pointing to the path <code>~/.peptide/datasets</code>.' %}</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Copy-Datasets-Into-DATASTORE">Copy Datasets Into DATASTORE<a class="anchor-link" href="#Copy-Datasets-Into-DATASTORE"> </a></h3><ul>
+<li>Copy dataset directories into the location pointed to by the <code>DATASTORE</code> global variable.<ul>
+<li>for example <code>~/.peptide/datasets</code></li>
+</ul>
+</li>
+<li>Resulting folder structure <strong>must</strong> be<ul>
+<li><code>~/.peptide/datasets/acp/train_data.csv</code></li>
+<li><code>~/.peptide/datasets/amp/all_data.csv</code></li>
+<li><code>~/.peptide/datasets/dna_binding/train.csv</code></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>

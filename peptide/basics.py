@@ -10,7 +10,7 @@ from .imports import *
 # Cell
 
 def settings_template():
-    '''Create initial settings for library'''
+    '''Create initial settings for library.'''
     template = {
         'STORES' :
         {
@@ -26,7 +26,7 @@ def settings_template():
 # Cell
 
 def read_settings():
-    '''Read settings file at "~/.peptide/settings.yaml", if doesnt exist, create it from template'''
+    '''Read settings file at "~/.peptide/settings.yaml", if doesnt exist, create it from template.'''
     settings_dir = f'{Path.home()}/.peptide'
     settings_file = Path(f'{settings_dir}/settings.yaml')
 
