@@ -54,7 +54,8 @@ Read through any (or all) of the following quick start guides to get a general i
 - The steps demonstrated in these notebooks use default locations for datastore, etc as detailed in [Basics](https://vin00d.github.io/peptide/basics.html).
 - The first cell in every notebook imports these settings for convenience.
 - So if you intend to use default settings, make sure to place the datasets in the DATASTORE as detailed next.
-{% include note.html content='The settings file and default folder structure will be created by either executing `from peptide.basics import *` in a cell or executing the first cell in any of the above notebooks. This will create a `DATASTORE` variable pointing to the path `~/.peptide/datasets`.' %}
+
+**Note:** The settings file and default folder structure will be created by either executing `from peptide.basics import *` in a cell or executing the first cell in any of the above notebooks. This will create a `DATASTORE` variable pointing to the path `~/.peptide/datasets`.
 
 ### Copy Datasets Into DATASTORE
 
